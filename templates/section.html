@@ -5,12 +5,14 @@
   %>
     <li>
       <table class="table">
+      <% if (comment.ctx) { %>
         <tr>
           <td><%=comment.ctx.type%></td>
           <td><%=comment.ctx.string%></td> 
           <td><%=comment.ctx.receiver%></td>
           <td><%=comment.ctx.name%></td>
         </tr>
+      <% } %>
         <tr>
           <td>描述</td><td colspan="3"><%-comment.description.full%></td>
         </tr>
