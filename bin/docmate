@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var program = require('commander'),
+  docmate = require('../');
+
+// options
+
+program
+  .version(docmate.version)
+  .option('-f, --folder <folder>', 'where is the package.');
+
+// examples
+
+program.on('--help', function(){
+  console.log('  Examples:');
+  console.log('');
+  console.log('    $ docmate -f <folder>');
+  console.log('');
+});
+
+// parse argv
+program.parse(process.argv);
+
+// process stdin
+docmate.process(program.folder);

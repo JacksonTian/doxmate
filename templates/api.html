@@ -1,0 +1,16 @@
+<% include header %>
+<div class="container">
+  <div class="row">
+    <div class="span3 bs-docs-sidebar">
+      <% include sidebar %>
+    </div>
+    <div class="span9">
+      <% for (var key in apis) {
+        var api = apis[key];
+      %>
+        <%-api%>
+      <% } %>
+    </div>
+  </div>
+</div>
+<% include footer %>
