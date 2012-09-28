@@ -46,4 +46,4 @@ if (!docExists) {
   fs.mkdirSync(docPath, '0777');
 }
 // process stdin
-docmate.process(program.folder, program.output);
+docmate.process(program.input, program.output);
