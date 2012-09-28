@@ -8,8 +8,14 @@ Docmate 不再为文档而发愁
 npm install docmate -g
 ```
 # Usage
+此处将以docmate项目自身作为例子：
 ```
-docmate -f <package folder>
+// 签出docmate项目
+git clone git://github.com/JacksonTian/docmate.git ~/git/docmate
+// 指定项目路径
+docmate -f ~/git/docmate
+// 在doc目录下将会得到文档
+open ~/git/docmate/doc/index.html
 ```
 
 # License (MIT)
