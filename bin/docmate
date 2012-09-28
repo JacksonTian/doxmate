@@ -33,14 +33,12 @@ if (!program.input) {
 }
 
 if (!program.output) {
-  program.output = program.folder;
+  program.output = path.resolve(program.folder, 'doc');
 }
+
 program.output = path.resolve(program.output);
-var exists = fs.existsSync(program.output);
-if (!exists) {
-  fs.mkdirSync(program.output, '0777');
-}
-var docPath = path.join(program.output, 'doc');
+
+var docPath = program.output;
 var docExists = fs.existsSync(docPath);
 if (!docExists) {
   fs.mkdirSync(docPath, '0777');
