@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>API Documentation</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="base.css" />
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="./index.html">docmate</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li>
+                <a href="./index.html">Home</a>
+              </li>
+              <li>
+                <a href="./api.html">API Docs</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header class="jumbotron subhead">
+      <div class="container">
+        <h1>docmate</h1>
+        <p class="lead">
+          Generate your documentation.
+        </p>
+      </div>
+    </header>
+<div class="container">
+  <div class="row">
+    <div class="span3 bs-docs-sidebar">
+      <ul class="nav nav-list bs-docs-sidenav affix">
+  
+    <li>
+      <a href="#docmate"><i class="icon-chevron-right"></i>docmate</a>
+    </li>
+  
+ </ul>
+ 
+    </div>
+    <div class="span9">
+      
+        <section>
+  <ul class="unstyled">
+  
+    <li>
+      <table class="table">
+      
+        <tr>
+          <td>property</td>
+          <td>exports.version</td> 
+          <td>exports</td>
+          <td>version</td>
+        </tr>
+      
+        <tr>
+          <td>描述</td><td colspan="3"><p>docmate的版本号</p></td>
+        </tr>
+      
+        <tr>
+          <td>代码</td><td colspan="3"><pre><code>exports.version = require('../package.json').version;</code></pre></td>
+        </tr>
+      </table>
+    </li>
+  
+    <li>
+      <table class="table">
+      
+        <tr>
+          <td>method</td>
+          <td>exports.process()</td> 
+          <td>exports</td>
+          <td>process</td>
+        </tr>
+      
+        <tr>
+          <td>描述</td><td colspan="3"><p>处理目录</p></td>
+        </tr>
+      
+        <tr>
+          <td>参数</td>
+          <td>String</td>
+          <td>folder</td>
+          <td>目录路径</td>
+        </tr>
+      
+
+      
+        <tr>
+          <td>代码</td><td colspan="3"><pre><code>exports.process = function (input, output) {
+  var obj = require(path.resolve(input, 'package.json'));
+  obj.filename = path.join(__dirname, '../templates/index.html');
+  obj.docs = getDocs(input);
+  obj.apis = getAPIs(input);
+  obj.readme = getReadme(input);
+
+  // generate api
+  var api = getTemplates().api;
+  fs.writeFileSync(path.join(output, 'api.html'), ejs.render(api, obj), 'utf8');
+
+  // generate homepage
+  var homepage = getTemplates().homepage;
+  fs.writeFileSync(path.join(output, 'index.html'), ejs.render(homepage, obj), 'utf8');
+
+  // generate docs
+  var doc = getTemplates().doc;
+  for (var key in obj.docs) {
+    obj.content = obj.docs[key];
+    fs.writeFileSync(path.join(output, key + '.html'), ejs.render(doc, obj), 'utf8');
+  }
+
+  // copy styles
+  ncp(path.join(__dirname, '../templates/bootstrap'), path.join(output, 'bootstrap'), function () {});
+  ncp(path.join(__dirname, '../templates/base.css'), path.join(output, 'base.css'), function () {});
+};</code></pre></td>
+        </tr>
+      </table>
+    </li>
+  
+  </ul>
+</section>
+      
+    </div>
+  </div>
+</div>
+  </body>
+</html>

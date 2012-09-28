@@ -1,74 +1,86 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Docmate : 文档伴侣" />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Docmate</title>
+    <meta charset="utf-8" />
+    <title>API Documentation</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="base.css" />
   </head>
-
   <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/JacksonTian/docmate">View on GitHub</a>
-
-          <h1 id="project_title">Docmate</h1>
-          <h2 id="project_tagline">文档伴侣</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/JacksonTian/docmate/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/JacksonTian/docmate/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="./index.html">docmate</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li>
+                <a href="./index.html">Home</a>
+              </li>
+              <li>
+                <a href="./api.html">API Docs</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
+    <header class="jumbotron subhead">
+      <div class="container">
+        <h1>docmate</h1>
+        <p class="lead">
+          Generate your documentation.
+        </p>
+      </div>
+    </header>
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <section>
+        <h1>Docmate 不再为文档而发愁</h1>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>Welcome to GitHub Pages.</h3>
+<h1>来源</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>过去通常要自己维护API文档，这会是一件比较蛋疼的事情。所幸我们有dox。但是dox不能帮我们任意生成文档。于是就有了docmate。在遵循Github和CommonJS的约定后，docmate可以帮你的模块包生成文档。</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<h1>Installation</h1>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>安装</p>
 
-<h3>Designer Templates</h3>
+<div class="highlight"><pre lang="">npm install docmate -g
+</pre></div>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<h1>Usage</h1>
 
-<h3>Rather Drive Stick?</h3>
+<p>此处将以docmate项目自身作为例子：</p>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<div class="highlight"><pre lang="">// 签出docmate项目
+git clone git://github.com/JacksonTian/docmate.git ~/git/docmate
+// 指定项目路径
+docmate -f ~/git/docmate
+// 在doc目录下将会得到文档
+open ~/git/docmate/doc/index.html
+</pre></div>
 
-<h3>Authors and Contributors</h3>
+<h1>License (MIT)</h1>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>Copyright (c) 2012 Jackson Tian<br /><a href='http://weibo.com/shyvo'>http://weibo.com/shyvo</a></p>
 
-<h3>Support or Contact</h3>
+<p>The MIT License</p>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining<br />a copy of this software and associated documentation files (the<br />"Software"), to deal in the Software without restriction, including<br />without limitation the rights to use, copy, modify, merge, publish,<br />distribute, sublicense, and/or sell copies of the Software, and to<br />permit persons to whom the Software is furnished to do so, subject to<br />the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be<br />included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,<br />EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF<br />MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND<br />NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE<br />LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION<br />OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION<br />WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
       </section>
     </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Docmate maintained by <a href="https://github.com/JacksonTian">JacksonTian</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
+  </div>
+</div>
   </body>
 </html>
