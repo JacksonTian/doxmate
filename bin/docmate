@@ -35,15 +35,15 @@ if (!program.input) {
 if (!program.output) {
   program.output = program.folder;
 }
-
+program.output = path.resolve(program.output);
 var exists = fs.existsSync(program.output);
 if (!exists) {
-fs.mkdirSync(program.output, '0777');
+  fs.mkdirSync(program.output, '0777');
 }
 var docPath = path.join(program.output, 'doc');
 var docExists = fs.existsSync(docPath);
 if (!docExists) {
-fs.mkdirSync(docPath, '0777');
+  fs.mkdirSync(docPath, '0777');
 }
 // process stdin
 docmate.process(program.folder, program.output);
