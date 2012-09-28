@@ -13,10 +13,14 @@ npm install docmate -g
 // 签出docmate项目
 git clone git://github.com/JacksonTian/docmate.git ~/git/docmate
 // 指定项目路径
-docmate -f ~/git/docmate
+docmate -i ~/git/docmate
 // 在doc目录下将会得到文档
 open ~/git/docmate/doc/index.html
+// 或者 -o folder，可以将文档生成到指定的目录下
+docmate -i ~/git/docmate -o ~/output
 ```
+# 查看效果
+通过将生成的文档放到gh-pages分之中，可以通过链接<http://jacksontian.github.com/docmate>直接查看效果。
 
 # License (MIT)
 Copyright (c) 2012 Jackson Tian
