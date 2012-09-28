@@ -5,25 +5,45 @@
  */
 
 var program = require('commander'),
+  fs = require('fs'),
+  path = require('path'),
   docmate = require('../');
 
 // options
 
 program
   .version(docmate.version)
-  .option('-f, --folder <folder>', 'where is the package.');
+  .option('-o, --output <folder>', 'which folder to output.')
+  .option('-i, --input <folder>', 'where is the package.');
 
 // examples
 
 program.on('--help', function(){
   console.log('  Examples:');
   console.log('');
-  console.log('    $ docmate -f <folder>');
+  console.log('    $ docmate -i <folder>');
   console.log('');
 });
 
 // parse argv
 program.parse(process.argv);
 
+if (!program.input) {
+  console.log('$ docmate -i <folder> [-o <folder>]');
+}
+
+if (!program.output) {
+  program.output = program.folder;
+}
+
+var exists = fs.existsSync(program.output);
+if (!exists) {
+fs.mkdirSync(program.output, '0777');
+}
+var docPath = path.join(program.output, 'doc');
+var docExists = fs.existsSync(docPath);
+if (!docExists) {
+fs.mkdirSync(docPath, '0777');
+}
 // process stdin
-docmate.process(program.folder);
+docmate.process(program.folder, program.output);
