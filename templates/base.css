@@ -831,7 +831,7 @@ form.bs-docs-example {
     max-width: 970px;
   }
   .bs-docs-sidenav {
-    width: 258px;
+    /*width: 258px;*/
   }
 }
 
