@@ -1,16 +1,16 @@
 {
-  "name": "docmate",
-  "version": "0.0.3",
+  "name": "doxmate",
+  "version": "0.0.1",
   "description": "Generate your documentation.",
   "main": "index.js",
   "scripts": {
     "test": "npm test"
   },
   "bin": {
-    "docmate": "./bin/docmate"
+    "docmate": "./bin/doxmate"
   },
   "keywords": [
-    "Documentation",
+    "documentation",
     "dox"
   ],
   "dependencies": {
