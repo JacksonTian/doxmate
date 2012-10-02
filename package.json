@@ -7,7 +7,7 @@
     "test": "npm test"
   },
   "bin": {
-    "docmate": "./bin/doxmate"
+    "doxmate": "./bin/doxmate"
   },
   "keywords": [
     "documentation",
