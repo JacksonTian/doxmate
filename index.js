@@ -1,1 +1,1 @@
-module.exports = require('./lib/docmate.js');
+module.exports = require('./lib/doxmate.js');

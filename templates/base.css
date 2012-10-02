@@ -26,6 +26,9 @@ h3 code {
   font-weight: normal;
 }
 
+.api h3 a {
+  padding-top: 50px;
+}
 
 
 /* Tweak navbar brand link to be super sleek

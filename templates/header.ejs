@@ -2,7 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>API Documentation</title>
+    <title><%=name%> Documentation</title>
+    <meta name="keywords" content="<%= keywords.join(',') %>" />
+    <meta name="description" content="<%= description %>" />
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="base.css" />
   </head>
@@ -36,7 +38,7 @@
     </div>
     <header class="jumbotron subhead">
       <div class="container">
-        <h1><%= name %></h1>
+        <h1><%= name %> <small>Version: <%= version %> By @<%= author %></small></h1>
         <p class="lead">
           <%= description %>
         </p>

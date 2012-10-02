@@ -7,12 +7,12 @@
 var program = require('commander'),
   fs = require('fs'),
   path = require('path'),
-  docmate = require('../');
+  doxmate = require('../');
 
 // options
 
 program
-  .version(docmate.version)
+  .version(doxmate.version)
   .option('-o, --output <folder>', 'which folder to output.')
   .option('-i, --input <folder>', 'where is the package.');
 
@@ -21,7 +21,7 @@ program
 program.on('--help', function(){
   console.log('  Examples:');
   console.log('');
-  console.log('    $ docmate -i <folder>');
+  console.log('    $ doxmate -i <folder>');
   console.log('');
 });
 
@@ -29,7 +29,7 @@ program.on('--help', function(){
 program.parse(process.argv);
 
 if (!program.input) {
-  console.log('$ docmate -i <folder> [-o <folder>]');
+  console.log('$ doxmate -i <folder> [-o <folder>]');
 }
 
 if (!program.output) {
@@ -44,4 +44,4 @@ if (!docExists) {
   fs.mkdirSync(docPath, '0777');
 }
 // process stdin
-docmate.process(program.input, program.output);
+doxmate.process(program.input, program.output);
