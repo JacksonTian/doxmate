@@ -1,25 +1,31 @@
 <section class="api">
+  <h2><a name="<%=basename%>"><%=basename%>: API索引</a></h2>
   <ul class="">
-  <% console.log(comments); %>
   <% 
-  var indexs = comments.map(function (item) {
+  var indexs = comments.filter(function (item) {
+    return !item.ignore && item.ctx;
+  }).map(function (item) {
     return item.ctx;
   }).forEach(function (item) {
   %>
     <li>
-      <a href="#<%= item.receiver + '_' + item.name%>"><%= item.name%></a>
+      <a href="#<%= item.receiver || '' + '_' + item.name%>"><%= item.name%></a>
     </li>
 <% }); %>
   </ul>
-  <% for (var i = 0, l = comments.length; i < l; i++) {
-    var comment = comments[i];
-  %>
+<% for (var i = 0, l = comments.length; i < l; i++) {
+  var comment = comments[i];
+  if (comment.ignore) {
+    continue;
+  }
+%>
   <% if (comment.ctx) { %>
   <h3>
     <a name="<%= comment.ctx.receiver + '_' + comment.ctx.name%>">
       <%=comment.ctx.name%>
     </a>
   </h3>
+  <%-comment.description.full%>
   <% } %>
   <table class="table">
   <% if (comment.ctx) { %>
@@ -27,12 +33,9 @@
       <td><%=comment.ctx.type%></td>
       <td><%=comment.ctx.string%></td> 
       <td><%=comment.ctx.receiver%></td>
-      <td><a name="<%= comment.ctx.receiver + '_' + comment.ctx.name%>"></a><%=comment.ctx.name%></td>
+      <td><%=comment.ctx.name%></td>
     </tr>
   <% } %>
-    <tr>
-      <td>描述</td><td colspan="3"><%-comment.description.full%></td>
-    </tr>
 <% for (var j = 0, k = comment.tags.length; j < k; j++) { 
     var tag = comment.tags[j];
     switch (tag.type) {

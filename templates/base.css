@@ -25,7 +25,7 @@ h3 code {
   font-size: 14px;
   font-weight: normal;
 }
-
+.api h2 a,
 .api h3 a {
   padding-top: 50px;
 }
@@ -774,15 +774,18 @@ form.bs-docs-example {
   *width: 190px;
   margin: 0 0 -1px;
   padding: 8px 14px;
-  border: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  border-left: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
 }
 .bs-docs-sidenav > li:first-child > a {
-          border-top-right-radius: 6px;
-          border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top: 1px solid #e5e5e5;
 }
 .bs-docs-sidenav > li:last-child > a {
-          border-bottom-right-radius: 6px;
-          border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 .bs-docs-sidenav > .active > a {
   position: relative;
