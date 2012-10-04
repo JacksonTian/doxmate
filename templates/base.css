@@ -30,7 +30,6 @@ h3 code {
   padding-top: 50px;
 }
 
-
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */
 
@@ -62,7 +61,9 @@ body > .navbar .brand:first-letter {
 body > .navbar .nav > li > a {
   font-size: 14px;
 }
-
+body > .navbar .nav > li > a:first-letter {
+  text-transform: uppercase;
+}
 /* Sections
 -------------------------------------------------- */
 

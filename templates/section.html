@@ -7,9 +7,10 @@
   }).map(function (item) {
     return item.ctx;
   }).forEach(function (item) {
+    item.receiver = item.receiver || '';
   %>
     <li>
-      <a href="#<%= item.receiver || '' + '_' + item.name%>"><%= item.name%></a>
+      <a href="#<%= item.receiver + '_' + item.name%>"><%= item.name%></a>
     </li>
 <% }); %>
   </ul>
