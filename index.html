@@ -2,7 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>API Documentation</title>
+    <title>doxmate Documentation</title>
+    <meta name="keywords" content="documentation,dox" />
+    <meta name="description" content="Generate your documentation." />
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="base.css" />
   </head>
@@ -15,7 +17,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="./index.html">docmate</a>
+          <a class="brand" href="./index.html">doxmate</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li>
@@ -32,7 +34,7 @@
     </div>
     <header class="jumbotron subhead">
       <div class="container">
-        <h1>docmate</h1>
+        <h1>doxmate <small>Version: 0.0.2 By @Jackson Tian</small></h1>
         <p class="lead">
           Generate your documentation.
         </p>
@@ -42,45 +44,84 @@
   <div class="row">
     <div class="span12">
       <section>
-        <h1>Docmate 不再为文档而发愁</h1>
+        <h1>Doxmate 不再为文档而发愁</h1>
 
-<h1>来源</h1>
+<h2>来源</h2>
 
-<p>过去通常要自己维护API文档，这会是一件比较蛋疼的事情。所幸我们有dox。但是dox不能帮我们任意生成文档。于是就有了docmate。在遵循Github和CommonJS的约定后，docmate可以帮你的模块包生成文档。</p>
+<p>过去通常要自己维护API文档，这会是一件比较蛋疼的事情。所幸我们有dox。但是dox不能帮我们任意生成文档。于是就有了doxmate。在遵循Github和CommonJS的约定后，doxmate可以帮你的模块包生成文档。</p>
 
-<h1>Installation</h1>
+<h2>Installation</h2>
 
 <p>安装</p>
 
-<div class="highlight"><pre lang="">npm install docmate -g
+<div class="highlight"><pre lang="">npm install doxmate -g
 </pre></div>
 
-<h1>Usage</h1>
+<h2>Usage</h2>
 
-<p>此处将以docmate项目自身作为例子：</p>
+<p>此处将以doxmate项目自身作为例子：</p>
 
-<div class="highlight"><pre lang="">// 签出docmate项目
-git clone git://github.com/JacksonTian/docmate.git ~/git/docmate
+<div class="highlight"><pre lang="">// 签出doxmate项目
+git clone git://github.com/JacksonTian/doxmate.git ~/git/doxmate
 // 指定项目路径
-docmate -f ~/git/docmate
+doxmate -i ~/git/doxmate
 // 在doc目录下将会得到文档
-open ~/git/docmate/doc/index.html
+open ~/git/doxmate/doc/index.html
+// 或者 -o folder，可以将文档生成到指定的目录下
+doxmate -i ~/git/doxmate -o ~/output
 </pre></div>
 
-<h1>License (MIT)</h1>
+<h2>查看文档效果</h2>
 
-<p>Copyright (c) 2012 Jackson Tian<br /><a href='http://weibo.com/shyvo'>http://weibo.com/shyvo</a></p>
+<p>通过将生成的文档放到gh-pages分支中，可以通过链接<a href="http://jacksontian.github.com/doxmate"><a href='http://jacksontian.github.com/doxmate'>http://jacksontian.github.com/doxmate</a></a>直接查看效果。</p>
 
-<p>The MIT License</p>
+<h2>Github与CommonJS规范</h2>
 
-<p>Permission is hereby granted, free of charge, to any person obtaining<br />a copy of this software and associated documentation files (the<br />"Software"), to deal in the Software without restriction, including<br />without limitation the rights to use, copy, modify, merge, publish,<br />distribute, sublicense, and/or sell copies of the Software, and to<br />permit persons to whom the Software is furnished to do so, subject to<br />the following conditions:</p>
+<ul>
+<li>每个github项目下应该有一个README.md文件</li>
+<li>CommonJS规范建议文档存在在<code>doc</code>目录下</li>
+<li>CommonJS规范建议代码存在在<code>lib</code>目录下</li>
+</ul>
 
-<p>The above copyright notice and this permission notice shall be<br />included in all copies or substantial portions of the Software.</p>
+<p>Doxmate将会扫描项目下的README.md和doc目录下的md文件，通过markdown渲染，生成页面。扫描lib目录下的文件，通过dox解析内容，生成API文档页面。</p>
 
-<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,<br />EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF<br />MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND<br />NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE<br />LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION<br />OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION<br />WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+<h2>License (MIT)</h2>
+
+<div class="highlight"><pre lang="">Copyright (c) 2012 Jackson Tian
+<a href='http://weibo.com/shyvo'>http://weibo.com/shyvo</a>
+
+The MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software 
+and associated documentation files (the "Software"), to deal in the Software without restriction, 
+including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, 
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or 
+substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</pre></div>
       </section>
     </div>
   </div>
 </div>
+      <footer class="footer">
+        <div class="container">
+          <p class="pull-right">
+            <a href="#">Back to top</a>
+          </p>
+          <p>此文档通过doxmate生成。主题借鉴Bootstrap API文档风格。欢迎关注doxmate作者<a href="http://weibo.com/shyvo" target="_blank">@朴灵</a></p>
+          <ul class="footer-links">
+            <li><a href="http://html5ify.com/doxmate">Doxmate主页</a></li>
+            <li><a href="https://github.com/JacksonTian/doxmate/issues?state=open">提交bug</a></li>
+          </ul>
+      </div>
+    </footer>
   </body>
 </html>

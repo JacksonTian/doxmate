@@ -2,7 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>API Documentation</title>
+    <title>doxmate Documentation</title>
+    <meta name="keywords" content="documentation,dox" />
+    <meta name="description" content="Generate your documentation." />
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="base.css" />
   </head>
@@ -15,7 +17,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="./index.html">docmate</a>
+          <a class="brand" href="./index.html">doxmate</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li>
@@ -32,7 +34,7 @@
     </div>
     <header class="jumbotron subhead">
       <div class="container">
-        <h1>docmate</h1>
+        <h1>doxmate <small>Version: 0.0.2 By @Jackson Tian</small></h1>
         <p class="lead">
           Generate your documentation.
         </p>
@@ -42,68 +44,100 @@
   <div class="row">
     <div class="span3 bs-docs-sidebar">
       <ul class="nav nav-list bs-docs-sidenav affix">
-  
-    <li>
-      <a href="#docmate"><i class="icon-chevron-right"></i>docmate</a>
-    </li>
-  
- </ul>
- 
+
+  <li>
+    <a href="#doxmate"><i class="icon-chevron-right"></i>doxmate</a>
+  </li>
+
+</ul>
+
     </div>
     <div class="span9">
       
-        <section>
-  <ul class="unstyled">
+        <section class="api">
+  <h2><a name="doxmate">doxmate: API索引</a></h2>
+  <ul class="">
   
     <li>
-      <table class="table">
-      
-        <tr>
-          <td>property</td>
-          <td>exports.version</td> 
-          <td>exports</td>
-          <td>version</td>
-        </tr>
-      
-        <tr>
-          <td>描述</td><td colspan="3"><p>docmate的版本号</p></td>
-        </tr>
-      
-        <tr>
-          <td>代码</td><td colspan="3"><pre><code>exports.version = require('../package.json').version;</code></pre></td>
-        </tr>
-      </table>
+      <a href="#exports_version">version</a>
     </li>
-  
-    <li>
-      <table class="table">
-      
-        <tr>
-          <td>method</td>
-          <td>exports.process()</td> 
-          <td>exports</td>
-          <td>process</td>
-        </tr>
-      
-        <tr>
-          <td>描述</td><td colspan="3"><p>处理目录</p></td>
-        </tr>
-      
-        <tr>
-          <td>参数</td>
-          <td>String</td>
-          <td>folder</td>
-          <td>目录路径</td>
-        </tr>
-      
 
-      
-        <tr>
-          <td>代码</td><td colspan="3"><pre><code>exports.process = function (input, output) {
+    <li>
+      <a href="#exports_process">process</a>
+    </li>
+
+  </ul>
+
+  
+  <h3>
+    <a name="exports_version">
+      version
+    </a>
+  </h3>
+  <p>doxmate的版本号</p>
+  
+  <table class="table">
+  
+    <tr>
+      <td>property</td>
+      <td>exports.version</td> 
+      <td>exports</td>
+      <td>version</td>
+    </tr>
+  
+
+    <tr>
+      <td>代码</td><td colspan="3"><pre><code>exports.version = require('../package.json').version;</code></pre></td>
+    </tr>
+  </table>
+  
+  
+  <h3>
+    <a name="exports_process">
+      process
+    </a>
+  </h3>
+  <p>处理目录，生成文档</p>
+  
+  <table class="table">
+  
+    <tr>
+      <td>method</td>
+      <td>exports.process()</td> 
+      <td>exports</td>
+      <td>process</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>String</td>
+      <td>input</td>
+      <td>输入目录路径</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>String</td>
+      <td>output</td>
+      <td>输出目录路径</td>
+    </tr>
+  
+
+    <tr>
+      <td>代码</td><td colspan="3"><pre><code>exports.process = function (input, output) {
   var obj = require(path.resolve(input, 'package.json'));
   obj.filename = path.join(__dirname, '../templates/index.html');
   obj.docs = getDocs(input);
-  obj.apis = getAPIs(input);
+  obj.apis = getAPIs(path.join(input, 'lib'));
+  var folders = getFolders(path.join(input, 'lib'));
+  for (var folder in folders) {
+    for (var key in folders[folder]) {
+      obj.apis[key] = folders[folder][key];
+    }
+  }
+
   obj.readme = getReadme(input);
 
   // generate api
@@ -117,7 +151,7 @@
   // generate docs
   var doc = getTemplates().doc;
   for (var key in obj.docs) {
-    obj.content = obj.docs[key];
+    obj.content = markdown(obj.docs[key]);
     fs.writeFileSync(path.join(output, key + '.html'), ejs.render(doc, obj), 'utf8');
   }
 
@@ -125,15 +159,25 @@
   ncp(path.join(__dirname, '../templates/bootstrap'), path.join(output, 'bootstrap'), function () {});
   ncp(path.join(__dirname, '../templates/base.css'), path.join(output, 'base.css'), function () {});
 };</code></pre></td>
-        </tr>
-      </table>
-    </li>
+    </tr>
+  </table>
   
-  </ul>
 </section>
       
     </div>
   </div>
 </div>
+      <footer class="footer">
+        <div class="container">
+          <p class="pull-right">
+            <a href="#">Back to top</a>
+          </p>
+          <p>此文档通过doxmate生成。主题借鉴Bootstrap API文档风格。欢迎关注doxmate作者<a href="http://weibo.com/shyvo" target="_blank">@朴灵</a></p>
+          <ul class="footer-links">
+            <li><a href="http://html5ify.com/doxmate">Doxmate主页</a></li>
+            <li><a href="https://github.com/JacksonTian/doxmate/issues?state=open">提交bug</a></li>
+          </ul>
+      </div>
+    </footer>
   </body>
 </html>

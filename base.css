@@ -14,14 +14,21 @@ body {
   position: relative;
   padding-top: 40px;
 }
-
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333;
+}
 /* Code in headings */
 h3 code {
   font-size: 14px;
   font-weight: normal;
 }
-
-
+.api h2 a,
+.api h3 a {
+  padding-top: 50px;
+}
 
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */
@@ -54,7 +61,9 @@ body > .navbar .brand:first-letter {
 body > .navbar .nav > li > a {
   font-size: 14px;
 }
-
+body > .navbar .nav > li > a:first-letter {
+  text-transform: uppercase;
+}
 /* Sections
 -------------------------------------------------- */
 
@@ -766,15 +775,18 @@ form.bs-docs-example {
   *width: 190px;
   margin: 0 0 -1px;
   padding: 8px 14px;
-  border: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  border-left: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
 }
 .bs-docs-sidenav > li:first-child > a {
-          border-top-right-radius: 6px;
-          border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top: 1px solid #e5e5e5;
 }
 .bs-docs-sidenav > li:last-child > a {
-          border-bottom-right-radius: 6px;
-          border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 .bs-docs-sidenav > .active > a {
   position: relative;
@@ -826,7 +838,7 @@ form.bs-docs-example {
     max-width: 970px;
   }
   .bs-docs-sidenav {
-    width: 258px;
+    /*width: 258px;*/
   }
 }
 
