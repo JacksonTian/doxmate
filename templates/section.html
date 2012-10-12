@@ -48,6 +48,14 @@
       <td colspan="2"><%=tag.description%></td>
     </tr>
   <% break;
+    case 'api':
+  %>
+    <tr>
+      <td><%=types[tag.type]%></td>
+      <td><%=tag.visibility%></td>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+  <% break;
     default:%>
     <tr>
       <td><%=types[tag.type]%></td>
