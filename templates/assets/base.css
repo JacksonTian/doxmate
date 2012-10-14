@@ -23,6 +23,9 @@ h3 code {
 .api h3 a {
   padding-top: 50px;
 }
+.api .indexs {
+  padding-bottom: 40px;
+}
 
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */
