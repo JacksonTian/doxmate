@@ -43,8 +43,9 @@ body > .navbar .brand:first-letter {
 body > .navbar .nav > li > a:first-letter {
   text-transform: uppercase;
 }
-/* Sections
--------------------------------------------------- */
+table {
+  table-layout: fixed;
+}
 
 /* padding for in-page bookmarks and fixed navbar */
 section > .page-header,
