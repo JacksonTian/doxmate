@@ -19,11 +19,11 @@ h3 code {
   font-size: 14px;
   font-weight: normal;
 }
-.api h2 a,
-.api h3 a {
+h2 a,
+h3 a {
   padding-top: 50px;
 }
-.api .indexs {
+.indexs {
   padding-bottom: 40px;
 }
 
@@ -773,6 +773,24 @@ form.bs-docs-example {
 .bs-docs-sidenav > li:last-child > a {
   border-bottom-right-radius: 6px;
   border-bottom-left-radius: 6px;
+}
+.bs-docs-sidenav .level_1 a {
+  text-indent: 0;
+}
+.bs-docs-sidenav .level_2 a {
+  text-indent: 0.5em;
+}
+.bs-docs-sidenav .level_3 a {
+  text-indent: 1em;
+}
+.bs-docs-sidenav .level_4 a {
+  text-indent: 1.5em;
+}
+.bs-docs-sidenav .level_5 a {
+  text-indent: 2em;
+}
+.bs-docs-sidenav .level_6 a {
+  text-indent: 2.5em;
 }
 .bs-docs-sidenav > .active > a {
   position: relative;
