@@ -44,13 +44,13 @@
         </p>
       </div>
     </header>
-<div class="container">
+<div class="container content">
   <div class="row">
     <div class="span3 bs-docs-sidebar">
       <ul class="nav nav-list bs-docs-sidenav affix">
 
   <li>
-    <a href="#doxmate"><i class="icon-chevron-right"></i>doxmate</a>
+    <a href="#api_doxmate"><i class="icon-chevron-right"></i>doxmate</a>
   </li>
 
 </ul>
@@ -58,8 +58,8 @@
     </div>
     <div class="span9">
       
-        <section class="api">
-  <h2><a name="doxmate">doxmate: API索引</a></h2>
+        <section id="api_doxmate" class="api">
+  <h2>doxmate: API索引</h2>
   <ul class="indexs">
   
     <li>
@@ -75,12 +75,11 @@
     </li>
 
   </ul>
+  <hr />
 
   
-  <h3>
-    <a name="exports_getIndexs">
-      getIndexs
-    </a>
+  <h3 id="exports_getIndexs">
+    getIndexs
   </h3>
   <p>从Markdown中提取标题列表</p>
   
@@ -107,26 +106,29 @@
   level = level &gt; 6 ? 6 : level; // 最大到6级标题
   level = level &lt; 1 ? 1 : level; // 最小到1级标题
   filter = filter || function (item) {return true;};
-  return section.match(/.*\n(\=+)|#+\s+(.*)/gm).map(function (item) {
-    if (/#+/.test(item)) {
-      var level = item.match(/#+/)[0].length;
-      var title = item.replace(/#+\s+/, '');
-      return {level: level, title: title};
-    } else {
-      return {level: 1, title: item.split(/\n/)[0]};
-    }
-  }).filter(function (item) {
-    return item.level &lt;= level;
-  }).filter(filter);
+  var matched = section.match(/.*\n(\=+)|#+\s+(.*)/gm);
+  if (matched) {
+    return matched.map(function (item) {
+      if (/#+/.test(item)) {
+        var level = item.match(/#+/)[0].length;
+        var title = item.replace(/#+\s+/, '');
+        return {level: level, title: title};
+      } else {
+        return {level: 1, title: item.split(/\n/)[0]};
+      }
+    }).filter(function (item) {
+      return item.level &lt;= level;
+    }).filter(filter);
+  } else {
+    return [];
+  }
 };</code></pre></td>
     </tr>
   </table>
   
   
-  <h3>
-    <a name="exports_version">
-      version
-    </a>
+  <h3 id="exports_version">
+    version
   </h3>
   <p>doxmate的版本号</p>
   
@@ -146,10 +148,8 @@
   </table>
   
   
-  <h3>
-    <a name="exports_process">
-      process
-    </a>
+  <h3 id="exports_process">
+    process
   </h3>
   <p>处理目录，生成文档</p>
   
@@ -247,9 +247,12 @@
         , bottom: 270
         }
       });
-      $('h2, h3, h4, h5, h6').each(function () {
+      $(".content").find('h1, h2, h3, h4, h5, h6').each(function () {
         var node = $(this);
-        node.html('<a name="index_' + node.text() + '">' + node.html() + '</a>');
+        if (!node.attr("id")) {
+          node.attr("id", "index_" + node.text());
+        }
+        node.css("paddingTop", 35);
       });
     });
   </script>

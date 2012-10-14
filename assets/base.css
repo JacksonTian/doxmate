@@ -19,13 +19,6 @@ h3 code {
   font-size: 14px;
   font-weight: normal;
 }
-h2 a,
-h3 a {
-  padding-top: 50px;
-}
-.indexs {
-  padding-bottom: 40px;
-}
 
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */
@@ -54,9 +47,6 @@ body > .navbar .nav > li > a:first-letter {
 -------------------------------------------------- */
 
 /* padding for in-page bookmarks and fixed navbar */
-section {
-  padding-top: 30px;
-}
 section > .page-header,
 section > .lead {
   color: #5a5a5a;

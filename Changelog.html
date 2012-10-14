@@ -44,7 +44,7 @@
         </p>
       </div>
     </header>
-<div class="container">
+<div class="container content">
   <div class="row">
   	<div class="span3 bs-docs-sidebar">
       <ul class="nav nav-list bs-docs-sidenav affix">
@@ -117,9 +117,12 @@
         , bottom: 270
         }
       });
-      $('h2, h3, h4, h5, h6').each(function () {
+      $(".content").find('h1, h2, h3, h4, h5, h6').each(function () {
         var node = $(this);
-        node.html('<a name="index_' + node.text() + '">' + node.html() + '</a>');
+        if (!node.attr("id")) {
+          node.attr("id", "index_" + node.text());
+        }
+        node.css("paddingTop", 35);
       });
     });
   </script>
