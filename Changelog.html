@@ -46,128 +46,18 @@
     </header>
 <div class="container">
   <div class="row">
-    <div class="span3 bs-docs-sidebar">
-      <ul class="nav nav-list bs-docs-sidenav affix">
+    <div class="span12">
+      <section>
+        <h1>Change log</h1>
 
-  <li>
-    <a href="#doxmate"><i class="icon-chevron-right"></i>doxmate</a>
-  </li>
+<h2>0.0.3</h2>
 
+<ul>
+<li>2012-10-14：采用<code>bootstrap</code>2.1.1，应用affix功能，使索引能够不随滚动而不见</li>
+<li>2012-10-14：添加prettify，将文档中的代码进行美化</li>
+<li>2012-10-14：左移品牌logo，去掉home链接，以显示更多的文档链接</li>
 </ul>
-
-    </div>
-    <div class="span9">
-      
-        <section class="api">
-  <h2><a name="doxmate">doxmate: API索引</a></h2>
-  <ul class="">
-  
-    <li>
-      <a href="#exports_version">version</a>
-    </li>
-
-    <li>
-      <a href="#exports_process">process</a>
-    </li>
-
-  </ul>
-
-  
-  <h3>
-    <a name="exports_version">
-      version
-    </a>
-  </h3>
-  <p>doxmate的版本号</p>
-  
-  <table class="table">
-  
-    <tr>
-      <td>property</td>
-      <td>exports.version</td> 
-      <td>exports</td>
-      <td>version</td>
-    </tr>
-  
-
-    <tr>
-      <td>代码</td><td colspan="3"><pre><code>exports.version = require('../package.json').version;</code></pre></td>
-    </tr>
-  </table>
-  
-  
-  <h3>
-    <a name="exports_process">
-      process
-    </a>
-  </h3>
-  <p>处理目录，生成文档</p>
-  
-  <table class="table">
-  
-    <tr>
-      <td>method</td>
-      <td>exports.process()</td> 
-      <td>exports</td>
-      <td>process</td>
-    </tr>
-  
-
-    <tr>
-      <td>参数</td>
-      <td>String</td>
-      <td>input</td>
-      <td>输入目录路径</td>
-    </tr>
-  
-
-    <tr>
-      <td>参数</td>
-      <td>String</td>
-      <td>output</td>
-      <td>输出目录路径</td>
-    </tr>
-  
-
-    <tr>
-      <td>代码</td><td colspan="3"><pre><code>exports.process = function (input, output) {
-  var obj = require(path.resolve(input, 'package.json'));
-  obj.filename = path.join(__dirname, '../templates/index.html');
-  obj.docs = getDocs(input);
-  obj.apis = getAPIs(path.join(input, 'lib'));
-  var folders = getFolders(path.join(input, 'lib'));
-  for (var folder in folders) {
-    for (var key in folders[folder]) {
-      obj.apis[key] = folders[folder][key];
-    }
-  }
-
-  obj.readme = getReadme(input);
-
-  // generate api
-  var api = getTemplates().api;
-  fs.writeFileSync(path.join(output, 'api.html'), ejs.render(api, obj), 'utf8');
-
-  // generate homepage
-  var homepage = getTemplates().homepage;
-  fs.writeFileSync(path.join(output, 'index.html'), ejs.render(homepage, obj), 'utf8');
-
-  // generate docs
-  var doc = getTemplates().doc;
-  for (var key in obj.docs) {
-    obj.content = markdown(obj.docs[key]);
-    fs.writeFileSync(path.join(output, key + '.html'), ejs.render(doc, obj), 'utf8');
-  }
-
-  // copy styles
-  ncp(path.join(__dirname, '../templates/bootstrap'), path.join(output, 'bootstrap'), function () {});
-  ncp(path.join(__dirname, '../templates/assets'), path.join(output, 'assets'), function () {});
-};</code></pre></td>
-    </tr>
-  </table>
-  
-</section>
-      
+      </section>
     </div>
   </div>
 </div>
