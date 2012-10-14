@@ -26,11 +26,15 @@
               <li>
                 <a href="./api.html">API Docs</a>
               </li>
-              <% for (var key in docs) { %>
+              <% for (var key in docs) {
+                if (key.substring(0, 1) !== '_') {
+              %>
               <li>
                 <a href="./<%=key%>.html"><%=key%></a>
               </li>
-              <% } %>
+              <%
+                }
+               } %>
             </ul>
           </div>
         </div>
