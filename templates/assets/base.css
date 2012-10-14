@@ -14,12 +14,6 @@ body {
   position: relative;
   padding-top: 40px;
 }
-body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-  color: #333;
-}
 /* Code in headings */
 h3 code {
   font-size: 14px;
@@ -33,16 +27,8 @@ h3 code {
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */
 
-body > .navbar {
-  font-size: 13px;
-}
-
 /* Change the docs' brand */
 body > .navbar .brand {
-  padding-right: 0;
-  padding-left: 0;
-  margin-left: 20px;
-  float: right;
   font-weight: bold;
   color: #000;
   text-shadow: 0 1px 0 rgba(255,255,255,.3), 0 0 30px rgba(255,255,255,.725);
@@ -57,9 +43,6 @@ body > .navbar .brand:hover {
 }
 body > .navbar .brand:first-letter {
   text-transform: uppercase;
-}
-body > .navbar .nav > li > a {
-  font-size: 14px;
 }
 body > .navbar .nav > li > a:first-letter {
   text-transform: uppercase;
@@ -824,8 +807,6 @@ form.bs-docs-example {
   top: auto;
   bottom: 270px;
 }
-
-
 
 
 /* Responsive
