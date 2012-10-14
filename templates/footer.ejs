@@ -23,7 +23,7 @@
         , bottom: 270
         }
       });
-      $('h2, h3, h4, h5, h6').each(function () {
+      $(".content").find('h1, h2, h3, h4, h5, h6').each(function () {
         var node = $(this);
         node.html('<a name="index_' + node.text() + '">' + node.html() + '</a>');
       });
