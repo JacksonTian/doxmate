@@ -11,26 +11,40 @@
           </ul>
       </div>
     </footer>
-  <script>
-    $(function() {
-      $('pre').addClass('prettyprint');
-      $('td pre').removeClass('prettyprint');
-      prettyPrint();
-      var $window = $(window);
-      $('.bs-docs-sidenav').affix({
-        offset: {
-          top: function () { return $window.width() <= 980 ? 290 : 210 }
-        , bottom: 270
-        }
+    <script>
+      $(function() {
+        $('pre').addClass('prettyprint');
+        $('td pre').removeClass('prettyprint');
+        prettyPrint();
+        var $window = $(window);
+        $('.bs-docs-sidenav').affix({
+          offset: {
+            top: function () {
+              return $window.width() <= 980 ? 290 : 210
+            },
+            bottom: 270
+          }
+        });
+        $(".content").find('h1, h2, h3, h4, h5, h6').each(function () {
+          var node = $(this);
+          if (!node.attr("id")) {
+            node.attr("id", "index_" + node.text());
+          }
+          node.css("paddingTop", 40);
+        });
       });
-      $(".content").find('h1, h2, h3, h4, h5, h6').each(function () {
-        var node = $(this);
-        if (!node.attr("id")) {
-          node.attr("id", "index_" + node.text());
-        }
-        node.css("paddingTop", 40);
-      });
-    });
-  </script>
+    </script>
+  <% if (tracker) { %>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("<%=tracker%>");
+        pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+  <% } %>
   </body>
 </html>

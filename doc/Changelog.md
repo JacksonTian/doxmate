@@ -1,7 +1,8 @@
 Change log
 ===
 ## 0.0.5
-- 2012-10-14：调整API文档的样式
+- 2012-10-15：在package.json中添加tracker配置`"tracker": "UA-17170593-4"`后，自动生成Google Tracker代码。注意，要获取tracker，需要[Google Analytics账户](http://www.google.com/analytics/)，如`UA-17170593-4`。
+- 2012-10-15：调整API文档的样式
 ## 0.0.4
 - 2012-10-14：为每个Markdown文档生成索引
 - 2012-10-14：添加测试
