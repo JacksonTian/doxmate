@@ -25,26 +25,35 @@
   <h3 id="<%= comment.ctx.receiver + '_' + comment.ctx.name%>">
     <%=comment.ctx.name%>
   </h3>
-  <%-comment.description.full%>
   <% } %>
+<% if (comment.code) { %>
+  <%-comment.description.full%>
+<% } %>
   <table class="table">
   <% if (comment.ctx) { %>
     <tr>
-      <td><%=comment.ctx.type%></td>
-      <td><%=comment.ctx.string%></td> 
-      <td><%=comment.ctx.receiver%></td>
-      <td><%=comment.ctx.name%></td>
+      <td><%=types[comment.ctx.type] %></td>
+      <td><%=comment.ctx.string %></td> 
+      <td><%=comment.ctx.receiver %></td>
+      <td><%=comment.ctx.name %></td>
     </tr>
   <% } %>
 <% for (var j = 0, k = comment.tags.length; j < k; j++) { 
     var tag = comment.tags[j];
     switch (tag.type) {
     case 'return':
+    case 'param':
+  %>
+    <tr>
+      <td><%=types[tag.type]%>(<%=tag.types && tag.types.join(',')%>)</td>
+      <td colspan="3"><%=tag.description%></td>
+    </tr>
+  <% break;
+   case 'api':
   %>
     <tr>
       <td><%=types[tag.type]%></td>
-      <td><%=tag.types && tag.types.join(',')%></td>
-      <td colspan="2"><%=tag.description%></td>
+      <td colspan="3"><%=tag.visibility%></td>
     </tr>
   <% break;
     default:%>
@@ -56,9 +65,11 @@
     </tr>
   <% } %>
 <% } %>
+  <% if (comment.code) { %>
     <tr>
       <td>代码</td><td colspan="3"><pre><code><%=comment.code%></code></pre></td>
     </tr>
+  <% } %>
   </table>
   <% } %>
 </section>
