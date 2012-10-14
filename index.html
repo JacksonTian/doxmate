@@ -38,7 +38,7 @@
     </div>
     <header class="jumbotron subhead">
       <div class="container">
-        <h1>doxmate <small>Version: 0.0.3 By @Jackson Tian</small></h1>
+        <h1>doxmate <small>Version: 0.0.4 By @Jackson Tian</small></h1>
         <p class="lead">
           Generate your documentation.
         </p>
@@ -46,7 +46,49 @@
     </header>
 <div class="container">
   <div class="row">
-    <div class="span12">
+  	<div class="span3 bs-docs-sidebar">
+      <ul class="nav nav-list bs-docs-sidenav affix">
+
+  <li class="level_2">
+    <a href="#index_来源" title="来源">
+      <i class="icon-chevron-right"></i>来源
+    </a>
+  </li>
+
+  <li class="level_2">
+    <a href="#index_Installation" title="Installation">
+      <i class="icon-chevron-right"></i>Installation
+    </a>
+  </li>
+
+  <li class="level_2">
+    <a href="#index_Usage" title="Usage">
+      <i class="icon-chevron-right"></i>Usage
+    </a>
+  </li>
+
+  <li class="level_2">
+    <a href="#index_查看文档效果" title="查看文档效果">
+      <i class="icon-chevron-right"></i>查看文档效果
+    </a>
+  </li>
+
+  <li class="level_2">
+    <a href="#index_Github与CommonJS规范" title="Github与CommonJS规范">
+      <i class="icon-chevron-right"></i>Github与CommonJS规范
+    </a>
+  </li>
+
+  <li class="level_2">
+    <a href="#index_License (MIT)" title="License (MIT)">
+      <i class="icon-chevron-right"></i>License (MIT)
+    </a>
+  </li>
+
+</ul>
+
+    </div>
+    <div class="span9">
       <section>
         <h1>Doxmate 不再为文档而发愁</h1>
 
@@ -139,7 +181,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
           top: function () { return $window.width() <= 980 ? 290 : 210 }
         , bottom: 270
         }
-      })
+      });
+      $('h2, h3, h4, h5, h6').each(function () {
+        var node = $(this);
+        node.html('<a name="index_' + node.text() + '">' + node.html() + '</a>');
+      });
     });
   </script>
   </body>

@@ -38,7 +38,7 @@
     </div>
     <header class="jumbotron subhead">
       <div class="container">
-        <h1>doxmate <small>Version: 0.0.3 By @Jackson Tian</small></h1>
+        <h1>doxmate <small>Version: 0.0.4 By @Jackson Tian</small></h1>
         <p class="lead">
           Generate your documentation.
         </p>
@@ -46,9 +46,40 @@
     </header>
 <div class="container">
   <div class="row">
-    <div class="span12">
+  	<div class="span3 bs-docs-sidebar">
+      <ul class="nav nav-list bs-docs-sidenav affix">
+
+  <li class="level_1">
+    <a href="#index_Change log" title="Change log">
+      <i class="icon-chevron-right"></i>Change log
+    </a>
+  </li>
+
+  <li class="level_2">
+    <a href="#index_0.0.4" title="0.0.4">
+      <i class="icon-chevron-right"></i>0.0.4
+    </a>
+  </li>
+
+  <li class="level_2">
+    <a href="#index_0.0.3" title="0.0.3">
+      <i class="icon-chevron-right"></i>0.0.3
+    </a>
+  </li>
+
+</ul>
+
+    </div>
+    <div class="span9">
       <section>
         <h1>Change log</h1>
+
+<h2>0.0.4</h2>
+
+<ul>
+<li>2012-10-14：为每个Markdown文档生成索引</li>
+<li>2012-10-14：添加测试</li>
+</ul>
 
 <h2>0.0.3</h2>
 
@@ -85,7 +116,11 @@
           top: function () { return $window.width() <= 980 ? 290 : 210 }
         , bottom: 270
         }
-      })
+      });
+      $('h2, h3, h4, h5, h6').each(function () {
+        var node = $(this);
+        node.html('<a name="index_' + node.text() + '">' + node.html() + '</a>');
+      });
     });
   </script>
   </body>

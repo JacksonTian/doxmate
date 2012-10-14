@@ -38,7 +38,7 @@
     </div>
     <header class="jumbotron subhead">
       <div class="container">
-        <h1>doxmate <small>Version: 0.0.3 By @Jackson Tian</small></h1>
+        <h1>doxmate <small>Version: 0.0.4 By @Jackson Tian</small></h1>
         <p class="lead">
           Generate your documentation.
         </p>
@@ -60,8 +60,12 @@
       
         <section class="api">
   <h2><a name="doxmate">doxmate: API索引</a></h2>
-  <ul class="">
+  <ul class="indexs">
   
+    <li>
+      <a href="#exports_getIndexs">getIndexs</a>
+    </li>
+
     <li>
       <a href="#exports_version">version</a>
     </li>
@@ -72,6 +76,52 @@
 
   </ul>
 
+  
+  <h3>
+    <a name="exports_getIndexs">
+      getIndexs
+    </a>
+  </h3>
+  <p>从Markdown中提取标题列表</p>
+  
+  <table class="table">
+  
+    <tr>
+      <td>method</td>
+      <td>exports.getIndexs()</td> 
+      <td>exports</td>
+      <td>getIndexs</td>
+    </tr>
+  
+
+    <tr>
+      <td>返回</td>
+      <td>Array</td>
+      <td colspan="2">返回标题列表</td>
+    </tr>
+  
+
+    <tr>
+      <td>代码</td><td colspan="3"><pre><code>exports.getIndexs = function (section, level, filter) {
+  level = level || 3; // 默认抽取到三级标题
+  level = level &gt; 6 ? 6 : level; // 最大到6级标题
+  level = level &lt; 1 ? 1 : level; // 最小到1级标题
+  filter = filter || function (item) {return true;};
+  return section.match(/.*\n(\=+)|#+\s+(.*)/gm).map(function (item) {
+    if (/#+/.test(item)) {
+      var level = item.match(/#+/)[0].length;
+      var title = item.replace(/#+\s+/, '');
+      return {level: level, title: title};
+    } else {
+      return {level: 1, title: item.split(/\n/)[0]};
+    }
+  }).filter(function (item) {
+    return item.level &lt;= level;
+  }).filter(filter);
+};</code></pre></td>
+    </tr>
+  </table>
+  
   
   <h3>
     <a name="exports_version">
@@ -142,20 +192,21 @@
     }
   }
 
-  obj.readme = getReadme(input);
-
   // generate api
   var api = getTemplates().api;
   fs.writeFileSync(path.join(output, 'api.html'), ejs.render(api, obj), 'utf8');
 
   // generate homepage
-  var homepage = getTemplates().homepage;
-  fs.writeFileSync(path.join(output, 'index.html'), ejs.render(homepage, obj), 'utf8');
+  var doc = getTemplates().doc;
+  var readme = getReadme(input);
+  obj.content = readme.content;
+  obj.indexs = readme.indexs;
+  fs.writeFileSync(path.join(output, 'index.html'), ejs.render(doc, obj), 'utf8');
 
   // generate docs
-  var doc = getTemplates().doc;
   for (var key in obj.docs) {
     obj.content = markdown(obj.docs[key]);
+    obj.indexs = exports.getIndexs(obj.docs[key]);
     fs.writeFileSync(path.join(output, key + '.html'), ejs.render(doc, obj), 'utf8');
   }
 
@@ -195,7 +246,11 @@
           top: function () { return $window.width() <= 980 ? 290 : 210 }
         , bottom: 270
         }
-      })
+      });
+      $('h2, h3, h4, h5, h6').each(function () {
+        var node = $(this);
+        node.html('<a name="index_' + node.text() + '">' + node.html() + '</a>');
+      });
     });
   </script>
   </body>
