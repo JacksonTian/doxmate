@@ -1,5 +1,5 @@
-<section class="api">
-  <h2><a name="<%=basename%>"><%=basename%>: API索引</a></h2>
+<section id="api_<%=basename%>" class="api">
+  <h2><%=basename%>: API索引</h2>
   <ul class="indexs">
   <% 
   var indexs = comments.filter(function (item) {
@@ -14,6 +14,7 @@
     </li>
 <% }); %>
   </ul>
+  <hr />
 <% for (var i = 0, l = comments.length; i < l; i++) {
   var comment = comments[i];
   if (comment.ignore) {
@@ -21,10 +22,8 @@
   }
 %>
   <% if (comment.ctx) { %>
-  <h3>
-    <a name="<%= comment.ctx.receiver + '_' + comment.ctx.name%>">
-      <%=comment.ctx.name%>
-    </a>
+  <h3 id="<%= comment.ctx.receiver + '_' + comment.ctx.name%>">
+    <%=comment.ctx.name%>
   </h3>
   <%-comment.description.full%>
   <% } %>
