@@ -12,8 +12,11 @@
       </div>
     </footer>
   <script>
-    // make code pretty
-    window.prettyPrint && prettyPrint();
+    $(function() {
+      $('pre').addClass('prettyprint');
+      prettyPrint();
+      $('.affix').affix();
+    });
   </script>
   </body>
 </html>

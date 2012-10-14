@@ -192,7 +192,7 @@ hr.soften {
   right: 0;
   bottom: 0;
   left: 0;
-  background: url(bootstrap/img/bs-docs-masthead-pattern.png) repeat center center;
+  background: url(../bootstrap/img/bs-docs-masthead-pattern.png) repeat center center;
   opacity: .4;
 }
 
