@@ -42,14 +42,22 @@
     var tag = comment.tags[j];
     switch (tag.type) {
     case 'return':
-    case 'param':
   %>
     <tr>
-      <td><%=types[tag.type]%>(<%=tag.types && tag.types.join(',')%>)</td>
-      <td colspan="3"><%=tag.description%></td>
+      <td><%=types[tag.type]%></td>
+      <td><%=tag.types && tag.types.join(',')%></td>
+      <td colspan="2"><%=tag.description%></td>
     </tr>
   <% break;
-   case 'api':
+    case 'param':
+    %>
+    <tr>
+      <td><%=types[tag.type]%></td>
+      <td><%=tag.name%>(<%=tag.types && tag.types.join(',')%>)</td>
+      <td colspan="2"><%=tag.description%></td>
+    </tr>
+  <% break;
+    case 'api':
   %>
     <tr>
       <td><%=types[tag.type]%></td>
