@@ -1,4 +1,4 @@
-Doxmate 不再为文档而发愁
+Doxmate 不再为文档而发愁 [![Build Status](https://secure.travis-ci.org/JacksonTian/doxmate.png)](http://travis-ci.org/JacksonTian/doxmate)
 ======================
 ## 来源
 过去通常要自己维护API文档，这会是一件比较蛋疼的事情。所幸我们有[dox](https://github.com/visionmedia/dox)，dox可以帮我们解析注解。但是dox不能帮我们任意生成文档。于是就有了doxmate，doxmate基于dox的注解对象，加入模板。在遵循Github和CommonJS的约定后，doxmate可以帮你的模块包快速生成文档。
