@@ -23,14 +23,15 @@
           <a class="brand" href="./index.html">doxmate</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
+            
               <li>
                 <a href="./api.html">API Docs</a>
               </li>
-              
+            
               <li>
                 <a href="./Changelog.html">Changelog</a>
               </li>
-              
+            
             </ul>
           </div>
         </div>
@@ -38,7 +39,7 @@
     </div>
     <header class="jumbotron subhead">
       <div class="container">
-        <h1>doxmate <small>Version: 0.0.5 By @Jackson Tian</small></h1>
+        <h1>doxmate <small>Version: 0.0.6 By @Jackson Tian</small></h1>
         <p class="lead">
           Generate your documentation.
         </p>
@@ -201,9 +202,11 @@
     }
   }
 
-  // generate api
-  var api = getTemplates().api;
-  fs.writeFileSync(path.join(output, 'api.html'), ejs.render(api, obj), 'utf8');
+  if (Object.keys(obj.apis).length) {
+    // generate api
+    var api = getTemplates().api;
+    fs.writeFileSync(path.join(output, 'api.html'), ejs.render(api, obj), 'utf8');
+  }
 
   // generate homepage
   var doc = getTemplates().doc;
