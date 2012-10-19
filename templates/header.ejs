@@ -7,34 +7,53 @@
     <meta name="description" content="<%= description %>" />
     <script src="assets/prettify.js"></script>
     <script src="assets/jquery-1.8.2.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
     <link rel="stylesheet" type="text/css" href="assets/base.css" />
   </head>
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
           <a class="brand" href="./index.html"><%=name%></a>
           <div class="nav-collapse collapse">
             <ul class="nav">
+            <% if (Object.keys(apis).length) { %>
               <li>
                 <a href="./api.html">API Docs</a>
               </li>
-              <% for (var key in docs) {
-                if (key.substring(0, 1) !== '_') {
-              %>
+            <% }
+            var keys = Object.keys(docs);
+            keys.sort(function (a, b) {
+              return a.substring(0, 1) !== '_' ? -1 : 1;
+            });
+            var slice = Object.keys(apis).length ? 6 : 7;
+            var display = keys.slice(0, slice);
+            for (var i = 0; i < display.length; i++) {
+              var key = display[i];
+            %>
               <li>
                 <a href="./<%=key%>.html"><%=key%></a>
               </li>
-              <%
-                }
-               } %>
+            <% } %>
+            <% if (keys.length > slice) { %>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">更多 <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu">
+                <%
+                var more = keys.slice(slice);
+                for (var i = 0; i < more.length; i++) {
+                  var key = more[i];
+                %>
+                  <li>
+                    <a href="./<%=key%>.html"><%=key%></a>
+                  </li>
+                <%
+                } %>
+                </ul>
+              </li>
+            <% } %>
             </ul>
           </div>
         </div>
