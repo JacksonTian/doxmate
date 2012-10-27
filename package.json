@@ -16,7 +16,7 @@
   "dependencies": {
     "dox": "*",
     "commander": "*",
-    "markded": "*",
+    "marked": "*",
     "ejs": "*",
     "ncp": "*"
   },
