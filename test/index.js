@@ -14,6 +14,7 @@ describe("Doxmate", function () {
       { level: 2, title: 'Usage' },
       { level: 2, title: '查看文档效果' },
       { level: 2, title: 'Github与CommonJS规范' },
+      { level: 2, title: '贡献者' },
       { level: 2, title: 'License (MIT)' }
     ];
     titles.should.eql(except);

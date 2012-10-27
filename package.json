@@ -16,7 +16,7 @@
   "dependencies": {
     "dox": "*",
     "commander": "*",
-    "github-flavored-markdown": "*",
+    "markded": "*",
     "ejs": "*",
     "ncp": "*"
   },
