@@ -36,7 +36,7 @@
     </div>
     <header class="jumbotron subhead">
       <div class="container">
-        <h1>doxmate <small>Version: 0.0.7 By @Jackson Tian</small></h1>
+        <h1>doxmate <small>Version: 0.0.8 By @Jackson Tian</small></h1>
         <p class="lead">
           Generate your documentation.
         </p>
@@ -107,7 +107,7 @@
   level = level &gt; 6 ? 6 : level; // 最大到6级标题
   level = level &lt; 1 ? 1 : level; // 最小到1级标题
   filter = filter || function (item) {return true;};
-  var matched = section.match(/.*\n(\=+)|#+\s+(.*)/gm);
+  var matched = section.match(/.*\r?\n(\=+)|#+\s+(.*)/gm);
   if (matched) {
     return matched.map(function (item) {
       if (/#+/.test(item)) {
