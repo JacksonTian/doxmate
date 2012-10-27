@@ -29,6 +29,22 @@ doxmate -i ~/git/doxmate -o ~/output
 
 Doxmate将会扫描项目下的README.md和doc目录下的md文件，通过markdown渲染，生成页面。扫描lib目录下的文件，通过dox解析内容，生成API文档页面。
 
+## 贡献者
+
+以下数据由`git-summary`于2012-10-27生成：
+
+```
+ project  : doxmate
+ repo age : 4 weeks
+ active   : 14 days
+ commits  : 54
+ files    : 28
+ authors  : 
+    49	Jackson Tian            90.7%
+     5	Lei Zongmin             9.3%
+
+```
+
 ## License (MIT)
 ```
 Copyright (c) 2012 Jackson Tian
