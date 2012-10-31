@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title><%=name%> Documentation</title>
-    <meta name="keywords" content="<%= keywords.join(',') %>" />
+    <meta name="keywords" content="<%= locals.keywords? keywords.join(',') : name %>" />
     <meta name="description" content="<%= description %>" />
     <script src="assets/prettify.js"></script>
     <script src="assets/jquery-1.8.2.min.js"></script>
