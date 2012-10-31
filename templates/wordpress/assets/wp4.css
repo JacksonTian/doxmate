@@ -31,7 +31,10 @@ pre {
 }
 
 pre a { font-weight: normal; }
-
+table {
+	table-layout: fixed;
+	width: 100%;
+}
 a { color: #21759b; text-decoration: none; font-weight: normal; }
 
 a:visited {color:#4ca6cf;}

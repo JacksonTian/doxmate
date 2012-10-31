@@ -16,6 +16,11 @@
         <%= description%>
       </form>
   <ul>
+  <% if (Object.keys(apis).length) { %>
+    <li>
+      <a href="./api.html">API Docs</a>
+    </li>
+  <% } %>
   <%
     var keys = Object.keys(docs);
     keys.sort(function (a, b) {
