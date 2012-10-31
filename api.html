@@ -1,102 +1,261 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>doxmate Documentation</title>
-    <meta name="keywords" content="documentation,dox" />
-    <meta name="description" content="Generate your documentation." />
-    <script src="assets/prettify.js"></script>
-    <script src="assets/jquery-1.8.2.min.js"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
-    <link rel="stylesheet" type="text/css" href="assets/base.css" />
-  </head>
-  <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="./index.html">doxmate</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-            
-              <li>
-                <a href="./api.html">API Docs</a>
-              </li>
-            
-              <li>
-                <a href="./Changelog.html">Changelog</a>
-              </li>
-            
-            
-            </ul>
-          </div>
-        </div>
-      </div>
+<head>
+  <meta charset="utf-8">
+  <title>doxmate</title>
+  <script src="assets/jquery-1.8.2.min.js"></script>
+  <link rel="stylesheet" href="assets/wp4.css">
+  <link rel="shortcut icon" href="http://s.wordpress.org/favicon.ico?3" type="image/x-icon">
+</head>
+
+<body id="wordpress-org">
+  <div id="header">
+    <div class="wrapper">
+      <h1><a href="./index.html">doxmate</a></h1>
+      <form method="get" id="head-search">
+        Generate your documentation.
+      </form>
+  <ul>
+  
+    <li>
+      <a href="./api.html">API Docs</a>
+    </li>
+  
+  
+      <li>
+        <a href="./Changelog.html">Changelog</a>
+      </li>
+    
+  </ul>
     </div>
-    <header class="jumbotron subhead">
-      <div class="container">
-        <h1>doxmate <small>Version: 0.0.9 By @Jackson Tian</small></h1>
-        <p class="lead">
-          Generate your documentation.
-        </p>
-      </div>
-    </header>
-<div class="container content">
-  <div class="row">
-    <div class="span3 bs-docs-sidebar">
-      <ul class="nav nav-list bs-docs-sidenav affix">
+  </div>
+
+  <div id="headline">
+    <div class="wrapper">
+      <h2>doxmate <small>Version: 0.0.10 By @Jackson Tian</small></h2>
+      <p></p>
+    </div>
+  </div>
+<div id="pagebody">
+  <div class="wrapper">
+    <div class="col-3" id="sidebar">
+      <ul class="submenu">
 
   <li>
-    <a href="#api_doxmate"><i class="icon-chevron-right"></i>doxmate</a>
+    <a href="#api_doxmate">doxmate</a>
   </li>
 
 </ul>
 
     </div>
-    <div class="span9">
+    <div class="col-9">
       
-        [object Object]
+        <section id="api_doxmate" class="api">
+  <h2>doxmate: API索引</h2>
+  <ul class="indexs">
+  
+    <li>
+      <a href="#exports_getIndexs">getIndexs</a>
+    </li>
+
+    <li>
+      <a href="#exports_version">version</a>
+    </li>
+
+    <li>
+      <a href="#exports_process">process</a>
+    </li>
+
+  </ul>
+  <hr />
+
+  
+  <h3 id="exports_getIndexs">
+    getIndexs
+  </h3>
+  
+
+  <p>从Markdown中提取标题列表</p>
+
+  <table class="table">
+  
+    <tr>
+      <td>方法</td>
+      <td>exports.getIndexs()</td> 
+      <td>exports</td>
+      <td>getIndexs</td>
+    </tr>
+  
+
+    <tr>
+      <td>返回</td>
+      <td>Array</td>
+      <td colspan="2">返回标题列表</td>
+    </tr>
+  
+
+  
+    <tr>
+      <td>代码</td><td colspan="3"><pre><code>exports.getIndexs = function (section, level, filter) {
+  level = level || 3; // 默认抽取到三级标题
+  level = level &gt; 6 ? 6 : level; // 最大到6级标题
+  level = level &lt; 1 ? 1 : level; // 最小到1级标题
+  filter = filter || function (item) {return true;};
+  var matched = section.match(/.*\r?\n(\=+)|#+\s+(.*)/gm);
+  if (matched) {
+    return matched.map(function (item) {
+      if (/#+/.test(item)) {
+        var level = item.match(/#+/)[0].length;
+        var title = item.replace(/#+\s+/, '');
+        return {level: level, title: title};
+      } else {
+        return {level: 1, title: item.split(/\n/)[0]};
+      }
+    }).filter(function (item) {
+      return item.level &lt;= level;
+    }).filter(filter);
+  } else {
+    return [];
+  }
+};</code></pre></td>
+    </tr>
+  
+  </table>
+  
+  
+  <h3 id="exports_version">
+    version
+  </h3>
+  
+
+  <p>doxmate的版本号</p>
+
+  <table class="table">
+  
+    <tr>
+      <td>属性</td>
+      <td>exports.version</td> 
+      <td>exports</td>
+      <td>version</td>
+    </tr>
+  
+
+  
+    <tr>
+      <td>代码</td><td colspan="3"><pre><code>exports.version = require('../package.json').version;</code></pre></td>
+    </tr>
+  
+  </table>
+  
+  
+  <h3 id="exports_process">
+    process
+  </h3>
+  
+
+  <p>处理目录，生成文档</p>
+
+  <table class="table">
+  
+    <tr>
+      <td>方法</td>
+      <td>exports.process()</td> 
+      <td>exports</td>
+      <td>process</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>input(String)</td>
+      <td colspan="2">输入目录路径</td>
+    </tr>
+  
+
+    <tr>
+      <td>参数</td>
+      <td>output(String)</td>
+      <td colspan="2">输出目录路径</td>
+    </tr>
+  
+
+  
+    <tr>
+      <td>代码</td><td colspan="3"><pre><code>exports.process = function (input, output, skin) {
+  var obj = require(path.resolve(input, 'package.json'));
+  obj.filename = path.join(__dirname, '../templates/' + skin + '/index.html');
+  obj.docs = getDocs(input);
+  obj.apis = getAPIs(path.join(input, 'lib'));
+  var section = getTemplates(skin).section;
+  var folders = getFolders(path.join(input, 'lib'));
+  for (var folder in folders) {
+    for (var key in folders[folder]) {
+      obj.apis[key] = folders[folder][key];
+    }
+  }
+  for (var key in obj.apis) {
+    obj.apis[key] = ejs.render(section, obj.apis[key]);
+  }
+
+  if (Object.keys(obj.apis).length) {
+    // generate api
+    var api = getTemplates(skin).api;
+    fs.writeFileSync(path.join(output, 'api.html'), ejs.render(api, obj), 'utf8');
+  }
+
+  // generate homepage
+  var doc = getTemplates(skin).doc;
+  var readme = getReadme(input);
+  obj.content = readme.content;
+  obj.indexs = readme.indexs;
+  fs.writeFileSync(path.join(output, 'index.html'), ejs.render(doc, obj), 'utf8');
+
+  // generate docs
+  for (var key in obj.docs) {
+    obj.content = markdown(obj.docs[key]);
+    obj.indexs = exports.getIndexs(obj.docs[key]);
+    fs.writeFileSync(path.join(output, key + '.html'), ejs.render(doc, obj), 'utf8');
+  }
+
+  // copy styles
+  ncp(path.join(__dirname, '../templates/' + skin + '/bootstrap'), path.join(output, 'bootstrap'), function () {});
+  ncp(path.join(__dirname, '../templates/' + skin + '/assets'), path.join(output, 'assets'), function () {});
+};</code></pre></td>
+    </tr>
+  
+  </table>
+  
+</section>
       
     </div>
   </div>
 </div>
-      <footer class="footer">
-        <div class="container">
-          <p class="pull-right">
-            <a href="#">Back to top</a>
-          </p>
-          <p>此文档通过doxmate生成。主题借鉴Bootstrap API文档风格，注解基于<a href="https://github.com/visionmedia/dox">Dox</a>。欢迎关注doxmate作者<a href="http://weibo.com/shyvo" target="_blank">@朴灵</a></p>
-          <ul class="footer-links">
-            <li><a href="https://github.com/visionmedia/dox">Dox主页</a></li>
-            <li><a href="http://html5ify.com/doxmate">Doxmate主页</a></li>
-            <li><a href="https://github.com/JacksonTian/doxmate/issues?state=open">提交bug</a></li>
-          </ul>
-      </div>
-    </footer>
-    <script>
-      $(function() {
-        $('pre').addClass('prettyprint');
-        $('td pre').removeClass('prettyprint');
-        prettyPrint();
-        var $window = $(window);
-        $('.bs-docs-sidenav').affix({
-          offset: {
-            top: function () {
-              return $window.width() <= 980 ? 290 : 210
-            },
-            bottom: 270
-          }
-        });
-        $(".content").find('h1, h2, h3, h4, h5, h6').each(function () {
-          var node = $(this);
-          if (!node.attr("id")) {
-            node.attr("id", "index_" + node.text());
-          }
-          node.css("paddingTop", 40);
-        });
-      });
-    </script>
+<br class="clear">
+<div id="footer">
+	<div class="wrapper">
+    <p>此文档通过doxmate生成。主题借鉴Wordpress首页风格，注解基于<a href="https://github.com/visionmedia/dox">Dox</a>。欢迎关注doxmate作者<a href="http://weibo.com/shyvo" target="_blank">@朴灵</a></p>
+    <a href="https://github.com/visionmedia/dox">Dox主页</a>
+    <a href="http://html5ify.com/doxmate">Doxmate主页</a>
+    <a href="https://github.com/JacksonTian/doxmate/issues?state=open">提交bug</a>
+		<h6>doxmate is awesome</h6>
+	</div>
+</div>
   
-  </body>
+
+  <script>
+  	var splited = location.pathname.split('/');
+  	var filename = splited[splited.length - 1].split('.')[0];
+  	$("#header li a").each(function () {
+  		if ($(this).text() === filename) {
+  			$(this).addClass('current');
+  		}
+  	});
+    $(".col-9").find('h1, h2, h3, h4, h5, h6').each(function () {
+      var node = $(this);
+      if (!node.attr("id")) {
+        node.attr("id", "index_" + node.text());
+      }
+    });
+  </script>
+</body>
 </html>

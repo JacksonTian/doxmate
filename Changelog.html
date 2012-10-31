@@ -1,106 +1,82 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>doxmate Documentation</title>
-    <meta name="keywords" content="documentation,dox" />
-    <meta name="description" content="Generate your documentation." />
-    <script src="assets/prettify.js"></script>
-    <script src="assets/jquery-1.8.2.min.js"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
-    <link rel="stylesheet" type="text/css" href="assets/base.css" />
-  </head>
-  <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="./index.html">doxmate</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-            
-              <li>
-                <a href="./api.html">API Docs</a>
-              </li>
-            
-              <li>
-                <a href="./Changelog.html">Changelog</a>
-              </li>
-            
-            
-            </ul>
-          </div>
-        </div>
-      </div>
+<head>
+  <meta charset="utf-8">
+  <title>doxmate</title>
+  <script src="assets/jquery-1.8.2.min.js"></script>
+  <link rel="stylesheet" href="assets/wp4.css">
+  <link rel="shortcut icon" href="http://s.wordpress.org/favicon.ico?3" type="image/x-icon">
+</head>
+
+<body id="wordpress-org">
+  <div id="header">
+    <div class="wrapper">
+      <h1><a href="./index.html">doxmate</a></h1>
+      <form method="get" id="head-search">
+        Generate your documentation.
+      </form>
+  <ul>
+  
+    <li>
+      <a href="./api.html">API Docs</a>
+    </li>
+  
+  
+      <li>
+        <a href="./Changelog.html">Changelog</a>
+      </li>
+    
+  </ul>
     </div>
-    <header class="jumbotron subhead">
-      <div class="container">
-        <h1>doxmate <small>Version: 0.0.9 By @Jackson Tian</small></h1>
-        <p class="lead">
-          Generate your documentation.
-        </p>
-      </div>
-    </header>
-<div class="container content">
-  <div class="row">
-  	<div class="span3 bs-docs-sidebar">
-      <ul class="nav nav-list bs-docs-sidenav affix">
+  </div>
+
+  <div id="headline">
+    <div class="wrapper">
+      <h2>doxmate <small>Version: 0.0.10 By @Jackson Tian</small></h2>
+      <p></p>
+    </div>
+  </div>
+<div id="pagebody">
+  <div class="wrapper">
+    <div class="col-3" id="sidebar">
+      <ul class="submenu">
 
   <li class="level_1">
-    <a href="#index_Change log" title="Change log">
-      <i class="icon-chevron-right"></i>Change log
-    </a>
+    <a href="#index_Change log" title="Change log">Change log</a>
   </li>
 
   <li class="level_2">
-    <a href="#index_0.0.9" title="0.0.9">
-      <i class="icon-chevron-right"></i>0.0.9
-    </a>
+    <a href="#index_0.0.9" title="0.0.9">0.0.9</a>
   </li>
 
   <li class="level_2">
-    <a href="#index_0.0.8" title="0.0.8">
-      <i class="icon-chevron-right"></i>0.0.8
-    </a>
+    <a href="#index_0.0.8" title="0.0.8">0.0.8</a>
   </li>
 
   <li class="level_2">
-    <a href="#index_0.0.7" title="0.0.7">
-      <i class="icon-chevron-right"></i>0.0.7
-    </a>
+    <a href="#index_0.0.7" title="0.0.7">0.0.7</a>
   </li>
 
   <li class="level_2">
-    <a href="#index_0.0.6" title="0.0.6">
-      <i class="icon-chevron-right"></i>0.0.6
-    </a>
+    <a href="#index_0.0.6" title="0.0.6">0.0.6</a>
   </li>
 
   <li class="level_2">
-    <a href="#index_0.0.5" title="0.0.5">
-      <i class="icon-chevron-right"></i>0.0.5
-    </a>
+    <a href="#index_0.0.5" title="0.0.5">0.0.5</a>
   </li>
 
   <li class="level_2">
-    <a href="#index_0.0.4" title="0.0.4">
-      <i class="icon-chevron-right"></i>0.0.4
-    </a>
+    <a href="#index_0.0.4" title="0.0.4">0.0.4</a>
   </li>
 
   <li class="level_2">
-    <a href="#index_0.0.3" title="0.0.3">
-      <i class="icon-chevron-right"></i>0.0.3
-    </a>
+    <a href="#index_0.0.3" title="0.0.3">0.0.3</a>
   </li>
 
 </ul>
-
     </div>
-    <div class="span9">
-      <section>
-        <h1>Change log</h1>
+    <div class="col-9">
+      <h1>Change log</h1>
 <h2>0.0.9</h2>
 <ul>
 <li>2012-11-01: 添加<code>-s</code>选项支持选择皮肤，目前提供<code>default</code>和<code>wordpress</code>两种皮肤<h2>0.0.8</h2>
@@ -122,46 +98,35 @@
 <li>2012-10-14：左移品牌logo，去掉home链接，以显示更多的文档链接</li>
 </ul>
 
-      </section>
     </div>
   </div>
 </div>
-      <footer class="footer">
-        <div class="container">
-          <p class="pull-right">
-            <a href="#">Back to top</a>
-          </p>
-          <p>此文档通过doxmate生成。主题借鉴Bootstrap API文档风格，注解基于<a href="https://github.com/visionmedia/dox">Dox</a>。欢迎关注doxmate作者<a href="http://weibo.com/shyvo" target="_blank">@朴灵</a></p>
-          <ul class="footer-links">
-            <li><a href="https://github.com/visionmedia/dox">Dox主页</a></li>
-            <li><a href="http://html5ify.com/doxmate">Doxmate主页</a></li>
-            <li><a href="https://github.com/JacksonTian/doxmate/issues?state=open">提交bug</a></li>
-          </ul>
-      </div>
-    </footer>
-    <script>
-      $(function() {
-        $('pre').addClass('prettyprint');
-        $('td pre').removeClass('prettyprint');
-        prettyPrint();
-        var $window = $(window);
-        $('.bs-docs-sidenav').affix({
-          offset: {
-            top: function () {
-              return $window.width() <= 980 ? 290 : 210
-            },
-            bottom: 270
-          }
-        });
-        $(".content").find('h1, h2, h3, h4, h5, h6').each(function () {
-          var node = $(this);
-          if (!node.attr("id")) {
-            node.attr("id", "index_" + node.text());
-          }
-          node.css("paddingTop", 40);
-        });
-      });
-    </script>
+<br class="clear">
+<div id="footer">
+	<div class="wrapper">
+    <p>此文档通过doxmate生成。主题借鉴Wordpress首页风格，注解基于<a href="https://github.com/visionmedia/dox">Dox</a>。欢迎关注doxmate作者<a href="http://weibo.com/shyvo" target="_blank">@朴灵</a></p>
+    <a href="https://github.com/visionmedia/dox">Dox主页</a>
+    <a href="http://html5ify.com/doxmate">Doxmate主页</a>
+    <a href="https://github.com/JacksonTian/doxmate/issues?state=open">提交bug</a>
+		<h6>doxmate is awesome</h6>
+	</div>
+</div>
   
-  </body>
+
+  <script>
+  	var splited = location.pathname.split('/');
+  	var filename = splited[splited.length - 1].split('.')[0];
+  	$("#header li a").each(function () {
+  		if ($(this).text() === filename) {
+  			$(this).addClass('current');
+  		}
+  	});
+    $(".col-9").find('h1, h2, h3, h4, h5, h6').each(function () {
+      var node = $(this);
+      if (!node.attr("id")) {
+        node.attr("id", "index_" + node.text());
+      }
+    });
+  </script>
+</body>
 </html>
