@@ -22,6 +22,20 @@ doxmate -i ~/git/doxmate -o ~/output
 ## 查看文档效果
 通过将生成的文档放到gh-pages分支中，可以通过链接<http://jacksontian.github.com/doxmate>直接查看效果。
 
+## 选择模版
+```
+// 不带-s参数会采用默认模版
+doxmate -i ~/git/doxmate -o ~/output
+// 带上-s参数后，可以选择doxmate提供的几种模板
+doxmate -i ~/git/doxmate -o ~/output -s wordpress
+```
+目前提供两种模板
+
+- 默认风格
+![defautl 默认风格](https://raw.github.com/JacksonTian/doxmate/master/doc/default_style.png)
+- wordpress风格
+![wordpress](https://raw.github.com/JacksonTian/doxmate/master/doc/wordpress_style.png)
+
 ## Github与CommonJS规范
 - 每个github项目下应该有一个README.md文件
 - CommonJS规范建议文档存在在`doc`目录下
