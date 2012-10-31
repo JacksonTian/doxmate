@@ -31,9 +31,9 @@ doxmate -i ~/git/doxmate -o ~/output -s wordpress
 ```
 目前提供两种模板
 
-- 默认风格
+- 默认风格  
 ![defautl 默认风格](https://raw.github.com/JacksonTian/doxmate/master/doc/default_style.png)
-- wordpress风格
+- wordpress风格  
 ![wordpress](https://raw.github.com/JacksonTian/doxmate/master/doc/wordpress_style.png)
 
 ## Github与CommonJS规范
