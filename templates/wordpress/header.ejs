@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%=name%></title>
+  <script src="assets/jquery-1.8.2.min.js"></script>
+  <link rel="stylesheet" href="assets/wp4.css">
+  <link rel="shortcut icon" href="http://s.wordpress.org/favicon.ico?3" type="image/x-icon">
+</head>
+
+<body id="wordpress-org">
+  <div id="header">
+    <div class="wrapper">
+      <h1><a href="./index.html"><%= name %></a></h1>
+      <form method="get" id="head-search">
+        <%= description%>
+      </form>
+  <ul>
+  <%
+    var keys = Object.keys(docs);
+    keys.sort(function (a, b) {
+      return a.substring(0, 1) !== '_' ? -1 : 1;
+    });
+    for (var i = 0; i < keys.length; i++) {
+      var key = keys[i];
+  %>
+      <li>
+        <a href="./<%=key%>.html"><%=key%></a>
+      </li>
+    <% } %>
+  </ul>
+    </div>
+  </div>
+
+  <div id="headline">
+    <div class="wrapper">
+      <h2><%= name %> <small>Version: <%= version %> By @<%= author %></small></h2>
+      <p></p>
+    </div>
+  </div>

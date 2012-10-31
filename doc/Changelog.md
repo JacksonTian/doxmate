@@ -1,7 +1,9 @@
 Change log
 ===
+## 0.0.9
+- 2012-11-01: 添加`-s`选项支持选择皮肤，目前提供`default`和`wordpress`两种皮肤
 ## 0.0.8
-- Use `marked` instead of `gfm`
+- 2012-10-27： Use `marked` instead of `gfm`
 ## 0.0.7
 - 2012-10-17：当文档过多时，通过“更多”按钮来管理链接
 ## 0.0.6

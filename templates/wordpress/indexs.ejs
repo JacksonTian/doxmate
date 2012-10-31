@@ -1,0 +1,9 @@
+<ul class="submenu">
+<% for (var i = 0, l = indexs.length; i < l; i++) {
+  var header = indexs[i];
+%>
+  <li class="level_<%= header.level%>">
+    <a href="#<%='index_' + header.title %>" title="<%=header.title%>"><%=header.title%></a>
+  </li>
+<% } %>
+</ul>

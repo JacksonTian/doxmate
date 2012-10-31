@@ -14,7 +14,8 @@ var program = require('commander'),
 program
   .version(doxmate.version)
   .option('-o, --output <folder>', 'which folder to output.')
-  .option('-i, --input <folder>', 'where is the package.');
+  .option('-i, --input <folder>', 'where is the package.')
+  .option('-s, --skin <folder>', 'where is the skin.', 'default');
 
 // examples
 
@@ -44,4 +45,4 @@ if (!docExists) {
   fs.mkdirSync(docPath, '0777');
 }
 // process stdin
-doxmate.process(program.input, program.output);
+doxmate.process(program.input, program.output, program.skin);
