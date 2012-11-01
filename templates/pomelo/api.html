@@ -1,0 +1,23 @@
+<% include header %>
+    <!-- 整体居中 -->
+    <div class="g-doc">
+      <!-- 主体 -->
+      <div class="g-bd">
+        <!-- API主体 -->
+        <div class="m-wrap">
+          <!-- API -->
+          <div class='main'>
+            <div class='maintt'>
+              <h1><%= name%> <span class='version'><%=version%></span> <span><%=author%></span></h1>
+            </div>
+          <% for (var key in apis) {
+            var api = apis[key];
+          %>
+            <%-api%>
+          <% } %>
+          </div>
+          <% include sidebar %>
+        </div>
+      </div>
+    </div>
+<% include footer %>

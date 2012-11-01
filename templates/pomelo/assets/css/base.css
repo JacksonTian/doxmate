@@ -1,0 +1,134 @@
+/* 
+   1. 重置（reset）（tags）：消除标签默认的样式和浏览器差异！
+   2. 默认（base）（tags）：我们希望某些语义化的标签有一个初始的样式，以减少后面的重复劳动！
+   3. 布局（grids）（.g-）：将页面分割为几个大块，通常有头部、主体、主栏、侧栏、尾部等！
+   4. 模块（module）（.m-）：不需要具备扩展性，通常是较为固定不变的可以重复使用的一个整体！
+   5. 组件（widget）（.w-）：必须具备扩展性，最好是同时具有结构上的可组合性！
+   6. 功能（function）（.f-）：为方便一些常用样式的使用，我们将这些使用率较高的样式剥离出来，按需使用，通常这些选择器具有固定样式表现，因为这些表现化的样式而非语义化的样式，所以切忌滥用！
+   7. 皮肤（skin）（.s-）：如果你需要把皮肤型的样式抽离出来，通常为字体色、背景色（图）、边框色等！
+   注:相同语义的不同类命名方法：直接加数字区分即可（如：.w-lst、.w-lst2、.w-lst3等，都是列表组件，但也许表现完全不一样）。
+   注:扩展类的命名方法：+“-”+数字（如：.w-lst的扩展类为.w-lst-1、.w-lst-2等，使用class=".w-lst .w-lst-1"的方法调用）。
+   注：约定任意一个不带连接符（即独立单词）的class类均为内部选择器，如：.hover均为鼠标停留在此元素上时，.current均为当前激活状态等等内部选择器仅用于精确的后代选择器（如：.w-lst .current），勿单独定义，使用内部选择器时请确保没有相同内部选择器的嵌套。
+   
+   详见前端页面框架平台之CSS规范。
+ */
+ 
+/* 重置&默认(reset&base)(tags) */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;}
+fieldset,img,a img,iframe,html,body{border:0;}
+li{list-style:none;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+abbr,acronym{border:0;font-variant:normal;}
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+del,ins{text-decoration:none;} 
+[hidefocus]{outline:0;} 
+textarea,input,button,select{font-size:inherit;line-height:inherit;color:inherit;font-family:inherit;}  
+textarea{overflow:auto;resize:none;}  
+body{word-wrap:break-word;font:12px/normal arial,simsun;color:#333;background:#fff;}
+h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:bold;}
+a,button{cursor:pointer;}
+a,a:hover{text-decoration:none;}
+
+/* function */ 
+.f-cb:after,.f-cbli li:after{display:block;clear:both;visibility:hidden;height:0;overflow:hidden;content:".";}
+.f-cb,.f-cbli li{zoom:1;}  
+.f-ib{display:inline-block;*display:inline;*zoom:1;} 
+.f-dn{display:none;}  
+.f-db{display:block;}  
+.f-fl{float:left;}  
+.f-fr{float:right;}  
+.f-pr{position:relative;}  
+.f-prz{position:relative;zoom:1;}  
+.f-oh{overflow:hidden;}  
+.f-ff0{font-family:arial;}  
+.f-ff1{font-family:simsun,\5b8b\4f53;}  
+.f-fs1{font-size:12px;}  
+.f-fs2{font-size:14px;}  
+.f-fwn{font-weight:normal;}  
+.f-fwb{font-weight:bold;}  
+.f-tal{text-align:left;}  
+.f-tac{text-align:center;}  
+.f-tar{text-align:right;}  
+.f-taj{text-align:justify;text-justify:inter-ideograph;}  
+.f-vam,.f-vama *{vertical-align:middle;}  
+.f-wsn{white-space:nowrap;}  
+.f-pre{overflow:hidden;text-align:left;white-space:pre-wrap;word-wrap:break-word;word-break:break-all;} 
+.f-wwb{white-space:normal;word-wrap:break-word;word-break:break-all;} 
+.f-ti{overflow:hidden;text-indent:-30000px;}  
+.f-ti2{text-indent:2em;} 
+.f-lhn{line-height:normal;} 
+.f-tdu,.f-tdu:hover{text-decoration:underline;} 
+.f-tdn,.f-tdn:hover{text-decoration:none;} 
+.f-toe{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}  
+.f-csp{cursor:pointer;}  
+.f-csd{cursor:default;}  
+.f-csh{cursor:help;}  
+.f-csm{cursor:move;}  
+.f-usn{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;}
+
+/* 共同布局 */
+html,body{width:100%;color:#666;}
+html{overflow:auto;overflow-y:scroll;}
+body{background:url(../image/bg.png) repeat 0 0;background-attachment:fixed;}
+/* 整体 */
+.g-doc{width:1000px;margin:0 auto;text-align:left;line-height:18px;font-size:12px;color:#666;font-family:arial;}
+/* 顶栏 */
+.g-bar{position:fixed;left:0;top:0;width:100%;height:30px;background-color:#f8851f;z-index:100;_position:absolute;_top:expression(documentElement.scrollTop);}
+/* 头部 */
+.g-hd{position:fixed;left:0;top:30px;width:100%;height:91px;z-index:100;_position:absolute;_top:expression(documentElement.scrollTop+30);}
+/* 主体 */
+.g-bd{margin-top:121px;}
+/* 尾栏 */
+.g-ft{background-color:#eee}
+
+/* 清除浮动 */
+.m-showfeature:after,.m-4col:after,.m-hdnav .bg:after{clear:both;content:".";display:block;height:0;visibility:hidden;}
+.m-showfeature,.m-4col,.m-hdnav .bg{zoom:1;}
+
+/* 模块 */
+/* 顶栏github模块 */
+.m-github{width:1000px;margin:0 auto;text-align:right;overflow:hidden;line-height:30px;color:#fff;}
+.m-github .title{margin-right:5px;}
+.m-github .link{margin-right:30px;color:#fff;}
+.m-github a:hover{text-decoration:underline;}
+
+/* 头部导航模块 */
+.m-hdnav{position:relative;width:1000px;height:90px;margin:0 auto;border-bottom:1px solid #dedede;}
+.m-hdnav .logo{position:absolute;left:20px;top:13px;width:153px;height:60px;z-index:101;}
+.m-hdnav .logo .img{width:153px;height:60px;background:url(../image/logo.png) no-repeat 0 0;_background-image:url(../image/logo2.png);}
+.m-hdnav .bg{height:90px;background-color:#fff;}
+.m-hdnav .wrap{position:relative;left:240px;top:13px;}
+.m-hdnav .cnt{position:absolute;}
+.m-hdnav li{float:left;margin-right:24px;line-height:75px;}
+.m-hdnav a{color:#666;font-size:14px;}
+.m-hdnav a:hover{color:#f8851f;}
+.m-hdnav .last{margin-right:0;}
+.m-hdnav .current{border-bottom:3px solid #f8851f;}
+.m-hdnav .current a{color:#f8851f;}
+
+/* 展示pomelo模块 */
+.m-showpomelo{padding:65px 0 75px 65px;margin-right:30px;background:url(../image/sp.png) no-repeat right 24px;}
+.m-showpomelo h1{font-size:100px;color:#f8851f;line-height:100px;}
+.m-showpomelo p{width:630px;line-height:77px;font-size:64px;}
+
+/* 展示特性模块 */
+.m-showfeature{position:relative;padding:40px 0 0 65px;margin-right:30px;margin-bottom:40px;border-top:1px solid #dedede;}
+.m-showfeature li{width:50%;line-height:34px;font-size:24px;}
+.m-showfeature .demo{position:absolute;left:50%;bottom:0;}
+.m-showfeature .demo a{line-height:48px;font-size:48px;color:#f8851f;}
+.m-showfeature .demo a:hover{text-decoration:underline;}
+
+/* 四列模块 */
+.m-4col{padding:38px 30px 38px 65px;border-top:1px solid #dedede;}
+.m-4col .col{float:left;width:200px;margin-right:35px;}
+.m-4col .last{margin-right:0;}
+.m-4col .col h2{line-height:32px;font-size:16px;color:#f8851f;}
+.m-4col .col p{line-height:21px;}
+.m-4col .col a{color:#2b72b3;}
+
+/* 尾部模块 */
+.m-ft{padding: 20px 0; text-align:center;}

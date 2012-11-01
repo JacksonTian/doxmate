@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <title><%= name %> Documentation</title>
+    <meta name='author' content='<%= author%>' />
+    <meta name='version' content='<%= version%>' />
+    <meta name='keywords' content='<%= locals.keywords ? keywords.join(',') : 'doxmate'%>' />
+    <meta name='description' content='<%= description%>' />
+    <link type='text/css' rel='stylesheet' href='assets/css/base.css'>
+    <link type='text/css' rel='stylesheet' href='assets/css/api.css'>
+  </head>
+  <body>
+    <!-- 顶栏 -->
+    <div class="g-bar">
+      <!-- 顶栏github模块 -->
+      <div class="m-github">
+        <%= description %>
+      </div>
+    </div>
+    <!-- 头部 -->
+    <div class="g-hd">
+      <div class="m-hdnav">
+      		<div class="bg">
+         	<div class="wrap">
+          		<ul class="cnt">
+          		  <li><a href="index.html">Home</a></li>
+                <% if (Object.keys(apis).length) { %>
+                <li>
+                  <a href="./api.html">API</a>
+                </li>
+              <% }
+              var display = Object.keys(docs);
+              for (var i = 0; i < display.length; i++) {
+                var key = display[i];
+              %>
+                <li>
+                  <a href="./<%=key%>.html"><%=key%></a>
+                </li>
+              <% } %>
+          		</ul>	
+         	 	</div>
+          </div>
+          <div class="logo"><a href="./index.html"><div class="img"></div></a></div>
+      </div>
+    </div>
