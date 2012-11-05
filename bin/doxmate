@@ -7,6 +7,7 @@
 var program = require('commander'),
   fs = require('fs'),
   path = require('path'),
+  env = require('../lib/env.js'),
   doxmate = require('../');
 
 // options
@@ -40,7 +41,7 @@ if (!program.output) {
 program.output = path.resolve(program.output);
 
 var docPath = program.output;
-var docExists = fs.existsSync(docPath);
+var docExists = env.existsSync(docPath);
 if (!docExists) {
   fs.mkdirSync(docPath, '0777');
 }
