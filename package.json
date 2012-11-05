@@ -4,7 +4,7 @@
   "description": "Generate your documentation.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "make test"
   },
   "bin": {
     "doxmate": "./bin/doxmate"
