@@ -1,54 +1,64 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>doxmate</title>
-  <script src="assets/jquery-1.8.2.min.js"></script>
-  <link rel="stylesheet" href="assets/wp4.css">
-  <link rel="shortcut icon" href="http://s.wordpress.org/favicon.ico?3" type="image/x-icon">
-</head>
-
-<body id="wordpress-org">
-  <div id="header">
-    <div class="wrapper">
-      <h1><a href="./index.html">doxmate</a></h1>
-      <form method="get" id="head-search">
-        Generate your documentation.
-      </form>
-  <ul>
-  
-    <li>
-      <a href="./api.html">API Docs</a>
-    </li>
-  
-  
-      <li>
-        <a href="./Changelog.html">Changelog</a>
-      </li>
-    
-  </ul>
+  <head>
+    <meta charset="utf-8" />
+    <title>doxmate Documentation</title>
+    <meta name="keywords" content="documentation,dox" />
+    <meta name="description" content="Generate your documentation." />
+    <script src="assets/prettify.js"></script>
+    <script src="assets/jquery-1.8.2.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/base.css" />
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="./index.html">doxmate</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+            
+              <li>
+                <a href="./api.html">API Docs</a>
+              </li>
+            
+              <li>
+                <a href="./Changelog.html">Changelog</a>
+              </li>
+            
+            
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div id="headline">
-    <div class="wrapper">
-      <h2>doxmate <small>Version: 0.0.10 By @Jackson Tian</small></h2>
-      <p></p>
-    </div>
-  </div>
-<div id="pagebody">
-  <div class="wrapper">
-    <div class="col-3" id="sidebar">
-      <ul class="submenu">
+    <header class="jumbotron subhead">
+      <div class="container">
+        <h1>doxmate <small>Version: 0.0.12 By @Jackson Tian</small></h1>
+        <p class="lead">
+          Generate your documentation.
+        </p>
+      </div>
+    </header>
+<div class="container content">
+  <div class="row">
+    <div class="span3 bs-docs-sidebar">
+      <ul class="nav nav-list bs-docs-sidenav affix">
 
   <li>
-    <a href="#api_doxmate">doxmate</a>
+    <a href="#api_doxmate"><i class="icon-chevron-right"></i>doxmate</a>
+  </li>
+
+  <li>
+    <a href="#api_env"><i class="icon-chevron-right"></i>env</a>
   </li>
 
 </ul>
 
     </div>
-    <div class="col-9">
+    <div class="span9">
       
         <section id="api_doxmate" class="api">
   <h2>doxmate: API索引</h2>
@@ -227,39 +237,82 @@
   
 </section>
       
+        <section id="api_env" class="api">
+  <h2>env: API索引</h2>
+  <ul class="indexs">
+  
+  </ul>
+  <hr />
+
+  
+
+  
+
+  <table class="table">
+  
+
+  
+    <tr>
+      <td>代码</td><td colspan="3"><pre><code>&quot;use strict&quot;;
+
+var fs = require('fs');
+var path = require('path');
+
+exports.existsSync = function (p) {
+  if (fs.existsSync) {
+    return fs.existsSync(p);
+  }
+  if (path.existsSync) {
+    return path.existsSync(p);
+  }
+
+  return false;
+};</code></pre></td>
+    </tr>
+  
+  </table>
+  
+</section>
+      
     </div>
   </div>
 </div>
-<br class="clear">
-<div id="footer">
-	<div class="wrapper">
-    <p>
-      此文档通过doxmate生成。主题借鉴Wordpress首页风格，注解基于<a href="https://github.com/visionmedia/dox">Dox</a>。欢迎关注doxmate作者<a href="http://weibo.com/shyvo" target="_blank">@朴灵</a>
-    </p>
-    <p>
-      | <a href="https://github.com/visionmedia/dox">Dox主页</a>
-      | <a href="http://html5ify.com/doxmate">Doxmate主页</a>
-      | <a href="https://github.com/JacksonTian/doxmate/issues?state=open">提交bug</a>
-    </p>
-		<h6>doxmate is awesome</h6>
-	</div>
-</div>
+      <footer class="footer">
+        <div class="container">
+          <p class="pull-right">
+            <a href="#">Back to top</a>
+          </p>
+          <p>此文档通过doxmate生成。主题借鉴Bootstrap API文档风格，注解基于<a href="https://github.com/visionmedia/dox">Dox</a>。欢迎关注doxmate作者<a href="http://weibo.com/shyvo" target="_blank">@朴灵</a></p>
+          <ul class="footer-links">
+            <li><a href="https://github.com/visionmedia/dox">Dox主页</a></li>
+            <li><a href="http://html5ify.com/doxmate">Doxmate主页</a></li>
+            <li><a href="https://github.com/JacksonTian/doxmate/issues?state=open">提交bug</a></li>
+          </ul>
+      </div>
+    </footer>
+    <script>
+      $(function() {
+        $('pre').addClass('prettyprint');
+        $('td pre').removeClass('prettyprint');
+        prettyPrint();
+        var $window = $(window);
+        $('.bs-docs-sidenav').affix({
+          offset: {
+            top: function () {
+              return $window.width() <= 980 ? 290 : 210
+            },
+            bottom: 270
+          }
+        });
+        $(".content").find('h1, h2, h3, h4, h5, h6').each(function () {
+          var node = $(this);
+          if (!node.attr("id")) {
+            node.attr("id", "index_" + node.text());
+          }
+          node.css("paddingTop", 40);
+        });
+      });
+    </script>
   
-
-  <script>
-  	var splited = location.pathname.split('/');
-  	var filename = splited[splited.length - 1].split('.')[0];
-  	$("#header li a").each(function () {
-  		if ($(this).text() === filename) {
-  			$(this).addClass('current');
-  		}
-  	});
-    $(".col-9").find('h1, h2, h3, h4, h5, h6').each(function () {
-      var node = $(this);
-      if (!node.attr("id")) {
-        node.attr("id", "index_" + node.text());
-      }
-    });
-  </script>
-</body>
+  </body>
 </html>

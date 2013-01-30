@@ -1,82 +1,106 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>doxmate</title>
-  <script src="assets/jquery-1.8.2.min.js"></script>
-  <link rel="stylesheet" href="assets/wp4.css">
-  <link rel="shortcut icon" href="http://s.wordpress.org/favicon.ico?3" type="image/x-icon">
-</head>
-
-<body id="wordpress-org">
-  <div id="header">
-    <div class="wrapper">
-      <h1><a href="./index.html">doxmate</a></h1>
-      <form method="get" id="head-search">
-        Generate your documentation.
-      </form>
-  <ul>
-  
-    <li>
-      <a href="./api.html">API Docs</a>
-    </li>
-  
-  
-      <li>
-        <a href="./Changelog.html">Changelog</a>
-      </li>
-    
-  </ul>
+  <head>
+    <meta charset="utf-8" />
+    <title>doxmate Documentation</title>
+    <meta name="keywords" content="documentation,dox" />
+    <meta name="description" content="Generate your documentation." />
+    <script src="assets/prettify.js"></script>
+    <script src="assets/jquery-1.8.2.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/base.css" />
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="./index.html">doxmate</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+            
+              <li>
+                <a href="./api.html">API Docs</a>
+              </li>
+            
+              <li>
+                <a href="./Changelog.html">Changelog</a>
+              </li>
+            
+            
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div id="headline">
-    <div class="wrapper">
-      <h2>doxmate <small>Version: 0.0.10 By @Jackson Tian</small></h2>
-      <p></p>
-    </div>
-  </div>
-<div id="pagebody">
-  <div class="wrapper">
-    <div class="col-3" id="sidebar">
-      <ul class="submenu">
+    <header class="jumbotron subhead">
+      <div class="container">
+        <h1>doxmate <small>Version: 0.0.12 By @Jackson Tian</small></h1>
+        <p class="lead">
+          Generate your documentation.
+        </p>
+      </div>
+    </header>
+<div class="container content">
+  <div class="row">
+  	<div class="span3 bs-docs-sidebar">
+      <ul class="nav nav-list bs-docs-sidenav affix">
 
   <li class="level_2">
-    <a href="#index_来源" title="来源">来源</a>
+    <a href="#index_来源" title="来源">
+      <i class="icon-chevron-right"></i>来源
+    </a>
   </li>
 
   <li class="level_2">
-    <a href="#index_Installation" title="Installation">Installation</a>
+    <a href="#index_Installation" title="Installation">
+      <i class="icon-chevron-right"></i>Installation
+    </a>
   </li>
 
   <li class="level_2">
-    <a href="#index_Usage" title="Usage">Usage</a>
+    <a href="#index_Usage" title="Usage">
+      <i class="icon-chevron-right"></i>Usage
+    </a>
   </li>
 
   <li class="level_2">
-    <a href="#index_查看文档效果" title="查看文档效果">查看文档效果</a>
+    <a href="#index_查看文档效果" title="查看文档效果">
+      <i class="icon-chevron-right"></i>查看文档效果
+    </a>
   </li>
 
   <li class="level_2">
-    <a href="#index_选择模版" title="选择模版">选择模版</a>
+    <a href="#index_选择模版" title="选择模版">
+      <i class="icon-chevron-right"></i>选择模版
+    </a>
   </li>
 
   <li class="level_2">
-    <a href="#index_Github与CommonJS规范" title="Github与CommonJS规范">Github与CommonJS规范</a>
+    <a href="#index_Github与CommonJS规范" title="Github与CommonJS规范">
+      <i class="icon-chevron-right"></i>Github与CommonJS规范
+    </a>
   </li>
 
   <li class="level_2">
-    <a href="#index_贡献者" title="贡献者">贡献者</a>
+    <a href="#index_贡献者" title="贡献者">
+      <i class="icon-chevron-right"></i>贡献者
+    </a>
   </li>
 
   <li class="level_2">
-    <a href="#index_License (MIT)" title="License (MIT)">License (MIT)</a>
+    <a href="#index_License (MIT)" title="License (MIT)">
+      <i class="icon-chevron-right"></i>License (MIT)
+    </a>
   </li>
 
 </ul>
+
     </div>
-    <div class="col-9">
-      <h1>Doxmate 不再为文档而发愁 <a href="http://travis-ci.org/JacksonTian/doxmate"><img src="https://secure.travis-ci.org/JacksonTian/doxmate.png?branch=master" alt="Build Status"></a></h1>
+    <div class="span9">
+      <section>
+        <h1>Doxmate 不再为文档而发愁 <a href="http://travis-ci.org/JacksonTian/doxmate"><img src="https://secure.travis-ci.org/JacksonTian/doxmate.png?branch=master" alt="Build Status"></a></h1>
 <h2>来源</h2>
 <p>过去通常要自己维护API文档，这会是一件比较蛋疼的事情。所幸我们有<a href="https://github.com/visionmedia/dox">dox</a>，dox可以帮我们解析注解。但是dox不能帮我们任意生成文档。于是就有了doxmate，doxmate基于dox的注解对象，加入模板。在遵循Github和CommonJS的约定后，doxmate可以帮你的模块包快速生成文档。
 </p>
@@ -155,39 +179,46 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTIO
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE 
 OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</code></pre>
 
+      </section>
     </div>
   </div>
 </div>
-<br class="clear">
-<div id="footer">
-	<div class="wrapper">
-    <p>
-      此文档通过doxmate生成。主题借鉴Wordpress首页风格，注解基于<a href="https://github.com/visionmedia/dox">Dox</a>。欢迎关注doxmate作者<a href="http://weibo.com/shyvo" target="_blank">@朴灵</a>
-    </p>
-    <p>
-      | <a href="https://github.com/visionmedia/dox">Dox主页</a>
-      | <a href="http://html5ify.com/doxmate">Doxmate主页</a>
-      | <a href="https://github.com/JacksonTian/doxmate/issues?state=open">提交bug</a>
-    </p>
-		<h6>doxmate is awesome</h6>
-	</div>
-</div>
+      <footer class="footer">
+        <div class="container">
+          <p class="pull-right">
+            <a href="#">Back to top</a>
+          </p>
+          <p>此文档通过doxmate生成。主题借鉴Bootstrap API文档风格，注解基于<a href="https://github.com/visionmedia/dox">Dox</a>。欢迎关注doxmate作者<a href="http://weibo.com/shyvo" target="_blank">@朴灵</a></p>
+          <ul class="footer-links">
+            <li><a href="https://github.com/visionmedia/dox">Dox主页</a></li>
+            <li><a href="http://html5ify.com/doxmate">Doxmate主页</a></li>
+            <li><a href="https://github.com/JacksonTian/doxmate/issues?state=open">提交bug</a></li>
+          </ul>
+      </div>
+    </footer>
+    <script>
+      $(function() {
+        $('pre').addClass('prettyprint');
+        $('td pre').removeClass('prettyprint');
+        prettyPrint();
+        var $window = $(window);
+        $('.bs-docs-sidenav').affix({
+          offset: {
+            top: function () {
+              return $window.width() <= 980 ? 290 : 210
+            },
+            bottom: 270
+          }
+        });
+        $(".content").find('h1, h2, h3, h4, h5, h6').each(function () {
+          var node = $(this);
+          if (!node.attr("id")) {
+            node.attr("id", "index_" + node.text());
+          }
+          node.css("paddingTop", 40);
+        });
+      });
+    </script>
   
-
-  <script>
-  	var splited = location.pathname.split('/');
-  	var filename = splited[splited.length - 1].split('.')[0];
-  	$("#header li a").each(function () {
-  		if ($(this).text() === filename) {
-  			$(this).addClass('current');
-  		}
-  	});
-    $(".col-9").find('h1, h2, h3, h4, h5, h6').each(function () {
-      var node = $(this);
-      if (!node.attr("id")) {
-        node.attr("id", "index_" + node.text());
-      }
-    });
-  </script>
-</body>
+  </body>
 </html>
