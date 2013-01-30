@@ -1,5 +1,8 @@
 Change log
 ===
+## 0.0.12
+- 2013-01-30：通过在package.json中添加disqus，自动生成Disqus评论功能。
+
 ## 0.0.11
 - 2012-11-05：支持node 0.6版本
 
