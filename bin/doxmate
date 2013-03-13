@@ -35,7 +35,7 @@ if (!program.input) {
 }
 
 if (!program.output) {
-  program.output = path.resolve(program.folder, 'doc');
+  program.output = path.resolve('doc');
 }
 
 program.output = path.resolve(program.output);

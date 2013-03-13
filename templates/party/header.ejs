@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Node Party</title>
+    <meta name="keywords" content="<%= locals.keywords? keywords.join(',') : name %>" />
+    <meta name="description" content="<%= description %>" />
+    <script src="assets/prettify.js"></script>
+    <script src="assets/jquery-1.8.2.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/base.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="./index.html"><%=name%></a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+            <%
+            var keys = Object.keys(docs).reverse();
+            var slice = 7;
+            var display = keys.slice(0, slice);
+            for (var i = 0; i < display.length; i++) {
+              var key = display[i];
+            %>
+              <li>
+                <a href="./<%=key%>.html"><%=key.split('_')[1]%></a>
+              </li>
+            <% } %>
+            <% if (keys.length > slice) { %>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">更多 <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu">
+                <%
+                var more = keys.slice(slice);
+                for (var i = 0; i < more.length; i++) {
+                  var key = more[i];
+                %>
+                  <li>
+                    <a href="./<%=key%>.html"><%=key%></a>
+                  </li>
+                <%
+                } %>
+                </ul>
+              </li>
+            <% } %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header class="jumbotron subhead">
+      <div class="container">
+        <h1><%= name %> <small>Version: <%= version %> By @<%= author %></small></h1>
+        <p class="lead">
+          <%= description %>
+        </p>
+      </div>
+    </header>

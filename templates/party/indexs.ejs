@@ -1,0 +1,11 @@
+<ul class="nav nav-list bs-docs-sidenav affix">
+<% for (var i = 0, l = indexs.length; i < l; i++) {
+  var header = indexs[i];
+%>
+  <li class="level_<%= header.level%>">
+    <a href="#<%='index_' + header.title %>" title="<%=header.title%>">
+      <i class="icon-chevron-right"></i><%=header.title%>
+    </a>
+  </li>
+<% } %>
+</ul>

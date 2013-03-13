@@ -1,0 +1,83 @@
+<section id="api_<%=basename%>" class="api">
+  <h2><%=basename%>: API索引</h2>
+  <ul class="indexs">
+  <% 
+  var indexs = comments.filter(function (item) {
+    return !item.ignore && item.ctx;
+  }).map(function (item) {
+    return item.ctx;
+  }).forEach(function (item) {
+    item.receiver = item.receiver || '';
+  %>
+    <li>
+      <a href="#<%= item.receiver + '_' + item.name%>"><%= item.name%></a>
+    </li>
+<% }); %>
+  </ul>
+  <hr />
+<% for (var i = 0, l = comments.length; i < l; i++) {
+  var comment = comments[i];
+  if (comment.ignore) {
+    continue;
+  }
+%>
+  <% if (comment.ctx) { %>
+  <h3 id="<%= comment.ctx.receiver + '_' + comment.ctx.name%>">
+    <%=comment.ctx.name%>
+  </h3>
+  <% } %>
+<% if (comment.code) { %>
+  <%-comment.description.full%>
+<% } %>
+  <table class="table">
+  <% if (comment.ctx) { %>
+    <tr>
+      <td><%=types[comment.ctx.type] %></td>
+      <td><%=comment.ctx.string %></td> 
+      <td><%=comment.ctx.receiver %></td>
+      <td><%=comment.ctx.name %></td>
+    </tr>
+  <% } %>
+<% for (var j = 0, k = comment.tags.length; j < k; j++) { 
+    var tag = comment.tags[j];
+    switch (tag.type) {
+    case 'return':
+  %>
+    <tr>
+      <td><%=types[tag.type]%></td>
+      <td><%=tag.types && tag.types.join(',')%></td>
+      <td colspan="2"><%=tag.description%></td>
+    </tr>
+  <% break;
+    case 'param':
+    %>
+    <tr>
+      <td><%=types[tag.type]%></td>
+      <td><%=tag.name%>(<%=tag.types && tag.types.join(',')%>)</td>
+      <td colspan="2"><%=tag.description%></td>
+    </tr>
+  <% break;
+    case 'api':
+  %>
+    <tr>
+      <td><%=types[tag.type]%></td>
+      <td colspan="3"><%=tag.visibility%></td>
+    </tr>
+  <% break;
+    default:%>
+    <tr>
+      <td><%=types[tag.type]%></td>
+      <td><%=tag.types && tag.types.join(',')%></td>
+      <td><%=tag.name%></td>
+      <td><%=tag.description%></td>
+    </tr>
+  <% } %>
+<% } %>
+  <% if (comment.code) { %>
+    <tr>
+      <td>代码</td><td colspan="3"><pre><code><%=comment.code%></code></pre></td>
+    </tr>
+  <% } %>
+  </table>
+  <% } %>
+</section>
