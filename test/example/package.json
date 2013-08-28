@@ -1,5 +1,5 @@
 {
-  "name": "doxmate2",
+  "name": "doxmate",
   "version": "0.0.13",
   "description": "Generate your documentation.",
   "main": "index.js",
@@ -7,9 +7,10 @@
     "test": "mocha"
   },
   "bin": {
-    "doxmate": "bin/doxmate",
-    "doxmate-build": "bin/doxmate-build",
-    "doxmate-list": "bin/doxmate-list"
+    "doxmate": "./bin/doxmate",
+    "doxmate-build": "./bin/doxmate-build",
+    "doxmate-list": "./bin/doxmate-list",
+    "doxmate-install": "./bin/doxmate-install"
   },
   "keywords": [
     "documentation",
@@ -21,19 +22,15 @@
     "marked": "*",
     "ejs": "*",
     "ncp": "*",
-    "win-spawn": "~2.0.0"
+    "mkdirp": "~0.3.5",
+    "unzip": "~0.1.9",
+    "win-spawn": "~2.0.0",
+    "progress": "~1.0.0"
   },
   "devDependencies": {
     "should": "*",
     "mocha": "*"
   },
   "author": "Jackson Tian",
-  "contributors": [
-        {
-            "name": "youxiachai",
-            "url": "http://github.com/youxiachai",
-            "email": "youxiachai@gmail.com"
-        }
-    ],
   "license": "MIT"
 }
