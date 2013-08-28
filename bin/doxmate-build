@@ -14,30 +14,31 @@ var program = require('commander'),
 
 program
   .option('-o, --output <folder>', 'which folder to output.')
-  .option('-i, --input <folder>', 'where is the package.')
-  .option('-c, --configure  <file>', 'The path to a configuration file to use to further tailor doxamte output')
+//  .option('-i, --input <folder>', 'where is the package.', '.')
+  //.option('-c, --configure  <file>', 'The path to a configuration file to use to further tailor doxamte output')
   .option('-s, --skin <folder>', 'where is the skin.', 'default');
 
 // parse argv
 program.parse(process.argv);
 
-if (!program.input) {
-  console.log('$ doxmate -i <folder> [-o <folder>]');
-}
 
 if (program.output) {
-  //program.output = path.resolve('doc');
-  program.output = path.resolve(program.output);
+    program.output = path.resolve(program.output);
+}else{
+    program.output = path.resolve('docs');
+}
+
   var docPath = program.output;
   var docExists = env.existsSync(docPath);
   if (!docExists) {
-    fs.mkdirSync(docPath, '0777');
-  }
-}
+        fs.mkdirSync(docPath, '0777');
+   }
 
 
 
 
 // process stdin
+//console.log(program.input);
+//.log();
 //console.log(program.output);
-doxmate.process(program.input, program.output, program.skin);
+doxmate.process(path.resolve('.'), program.output, program.skin);

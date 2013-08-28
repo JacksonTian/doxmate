@@ -146,19 +146,11 @@ exports.version = require('../package.json').version;
  */
 exports.process = function (input, output, skin) {
   var obj = require(path.resolve(input, 'package.json'));
-
-  //代码所在目录
-  var libDir =  path.join(input, 'lib');
-
-  //主题名
   obj.filename = path.join(__dirname, '../templates/' + skin + '/index.html');
-
-  //代码文档
   obj.docs = getDocs(input);
-
-  obj.apis = getAPIs(libDir);
+  obj.apis = getAPIs(path.join(input, 'lib'));
   var section = getTemplates(skin).section;
-  var folders = getFolders(libDir);
+  var folders = getFolders(path.join(input, 'lib'));
   for (var folder in folders) {
     for (var key in folders[folder]) {
       obj.apis[key] = folders[folder][key];
@@ -195,9 +187,6 @@ exports.process = function (input, output, skin) {
   console.log('Please open "' + output + '/index.html" to view it');
 };
 
-/**
- * 显示所有主题列表
- */
 exports.list = function () {
   var themeFiles = fs.readdirSync(path.join(__dirname, '../templates/'));
 
@@ -206,7 +195,6 @@ exports.list = function () {
   }
 }
 
-//TODO: 支持主题下载
 exports.install = function (url) {
 
 }

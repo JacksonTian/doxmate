@@ -5,7 +5,7 @@
  */
 
 var program = require('commander'),
-  spawn = require('win-fork'),
+  spawn = require('win-spawn'),
   fs = require('fs'),
   path = require('path'),
   join = path.join,
@@ -20,7 +20,7 @@ program
 program.on('--help', function(){
   console.log('  Commands:');
   console.log();
-  console.log('    install <url>    install theme');
+//  console.log('    install <url>    install theme');
   console.log('    build            create a api docs');
   console.log('    ls list          show all api docs theme');
   console.log();
