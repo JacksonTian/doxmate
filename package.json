@@ -18,7 +18,9 @@
     "commander": "*",
     "marked": "*",
     "ejs": "*",
-    "ncp": "*"
+    "ncp": "*",
+    "win-fork": "~1.1.1",
+    "mkdirp": "~0.3.5"
   },
   "devDependencies": {
     "should": "*",
