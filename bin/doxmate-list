@@ -4,3 +4,6 @@
  * Module dependencies.
  */
 
+var doxmate = require('../');
+
+doxmate.list();

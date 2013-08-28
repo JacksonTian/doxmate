@@ -15,6 +15,7 @@ var program = require('commander'),
 program
   .option('-o, --output <folder>', 'which folder to output.')
   .option('-i, --input <folder>', 'where is the package.')
+  .option('-c, --configure  <file>', 'The path to a configuration file to use to further tailor doxamte output')
   .option('-s, --skin <folder>', 'where is the skin.', 'default');
 
 // parse argv
