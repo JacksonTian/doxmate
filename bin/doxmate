@@ -5,30 +5,30 @@
  */
 
 var program = require('commander'),
-  spawn = require('win-spawn'),
-  fs = require('fs'),
-  path = require('path'),
-  join = path.join,
-  doxmate = require('../'),
-  exists = fs.existsSync;
+    exec = require('child_process').exec,
+    fs = require('fs'),
+    path = require('path'),
+    join = path.join,
+    doxmate = require('../'),
+    exists = fs.existsSync;
 
 program
-  .version(doxmate.version)
+    .version(doxmate.version)
 
 // examples
 
-program.on('--help', function(){
-  console.log('  Commands:');
-  console.log();
+program.on('--help', function () {
+    console.log('  Commands:');
+    console.log();
 //  console.log('    install <url>    install theme');
-  console.log('    build            create a api docs');
-  console.log('    ls list          show all api docs theme');
-  console.log();
-  console.log('  Examples:');
-  console.log('');
-  console.log('    $ doxmate build -i <folder>');
-  console.log('');
-  process.exit();
+    console.log('    build            create a api docs');
+    console.log('    ls list          show all api docs theme');
+    console.log();
+    console.log('  Examples:');
+    console.log('');
+    console.log('    $ doxmate build -i <folder>');
+    console.log('');
+    process.exit();
 });
 
 // parse argv
@@ -47,9 +47,9 @@ var cmd = program.args[0];
 // display help
 
 if (!cmd) {
-  process.stdout.write(program.helpInformation());
-  program.emit('--help');
-  process.exit();
+    process.stdout.write(program.helpInformation());
+    program.emit('--help');
+    process.exit();
 }
 
 // executable
@@ -61,10 +61,8 @@ var bin = 'doxmate-' + cmd;
 var local = join(__dirname, bin);
 if (exists(local)) bin = local;
 
-// spawn
 
-var proc = spawn(bin, args, { stdio: 'inherit', customFds: [0, 1, 2] });
-
-proc.on('close', function(code){
-  process.exit(code);
+exec('node ' + bin + ' ' + args, function (err, stdout) {
+    if (err) return console.error(err);
+    console.log(stdout);
 });
