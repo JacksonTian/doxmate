@@ -7,13 +7,12 @@
 var program = require('commander'),
   exec = require('child_process').exec,
   path = require('path'),
+  fs = require('fs'),
   join = path.join,
-  doxmate = require('../'),
-  env = require('../lib/env.js'),
-  exists = env.existsSync;
+  doxmate = require('../');
 
 program
-  .version(doxmate.version)
+  .version(doxmate.version);
 
 // examples
 
@@ -45,31 +44,30 @@ var cmd = program.args[0];
 
 // display help
 
-function showHelp () {
+function showHelp() {
   process.stdout.write(program.helpInformation());
   program.emit('--help');
-  process.exit();
 }
 
 if (!cmd) {
-  showHelp();
+  return showHelp();
 }
 
 // executable
-
 var bin = 'doxmate-' + cmd;
 
 // local
-
 var local = join(__dirname, bin);
-if (exists(local)) {
+if (fs.existsSync(local)) {
   bin = local;
 } else {
-  showHelp();
+  return showHelp();
 }
 
-
+// execute command
 exec('node ' + bin + ' ' + args, function (err, stdout) {
-  if (err) return console.error(err);
+  if (err) {
+    return console.error(err);
+  }
   console.log(stdout);
 });

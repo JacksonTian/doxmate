@@ -7,7 +7,6 @@
 var program = require('commander'),
   fs = require('fs'),
   path = require('path'),
-  env = require('../lib/env.js'),
   doxmate = require('../');
 
 // options
@@ -19,17 +18,20 @@ program
 // parse argv
 program.parse(process.argv);
 
-
 if (program.output) {
   program.output = path.resolve(program.output);
 } else {
-  program.output = path.resolve('docs');
+  program.output = path.resolve('doc');
 }
 
+// make sure output dir exists
 var docPath = program.output;
-var docExists = env.existsSync(docPath);
+var docExists = fs.existsSync(docPath);
 if (!docExists) {
   fs.mkdirSync(docPath, '0777');
 }
 
 doxmate.process(path.resolve('.'), program.output, program.skin);
+
+console.log('Generated at "' + program.output + '".');
+console.log('Please open "' + program.output + '/index.html" to view it');

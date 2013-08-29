@@ -1,6 +1,6 @@
 {
   "name": "doxmate",
-  "version": "0.0.13",
+  "version": "0.1.0",
   "description": "Generate your documentation.",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,8 @@
   "bin": {
     "doxmate": "bin/doxmate",
     "doxmate-build": "bin/doxmate-build",
-    "doxmate-list": "bin/doxmate-list"
+    "doxmate-list": "bin/doxmate-list",
+    "doxmate-install": "bin/doxmate-install"
   },
   "keywords": [
     "documentation",
@@ -28,11 +29,19 @@
   },
   "author": "Jackson Tian",
   "contributors": [
-        {
-            "name": "youxiachai",
-            "url": "http://github.com/youxiachai",
-            "email": "youxiachai@gmail.com"
-        }
-    ],
-  "license": "MIT"
+    "JacksonTian <shyvo1987@gmail.com> (https://github.com/JacksonTian)",
+    "youxiachai <youxiachai@gmail.com> (https://github.com/youxiachai)"
+  ],
+  "license": "MIT",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/JacksonTian/doxmate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JacksonTian/doxmate/issues"
+  }
 }

@@ -4,4 +4,6 @@
  * Module dependencies.
  */
 
-console.log('install custom api docs theme comming soon.');
+var doxmate = require('../');
+
+console.log(doxmate.install());

@@ -8,20 +8,20 @@
 
 var exec = require('child_process').exec;
 var should = require('should');
-describe('#doxmate build', function () {
-    it('#build default', function (done) {
-        exec('cd '+__dirname+ '/example' +' && node '+__dirname +'/../bin/doxmate build', function (err, stdout) {
-            if(err) return done(err);
-            should.exist(stdout);
-            done();
-        });
-    })
+describe('doxmate build', function () {
+  it('build default', function (done) {
+    exec('cd ' +  __dirname + '/example' + ' && node ' + __dirname + '/../bin/doxmate build', function (err, stdout) {
+      should.not.exist(err);
+      should.exist(stdout);
+      done();
+    });
+  });
 
-    it('#build custom output file', function (done) {
-        exec('cd '+__dirname+ '/example' +' && node '+__dirname +'/../bin/doxmate build -o apidoc', function (err, stdout) {
-            if(err) return done(err);
-            should.exist(stdout);
-            done();
-        });
-    })
-})
+  it('#build custom output file', function (done) {
+    exec('cd ' + __dirname + '/example' + ' && node ' + __dirname + '/../bin/doxmate build -o apidoc', function (err, stdout) {
+      should.not.exist(err);
+      should.exist(stdout);
+      done();
+    });
+  });
+});

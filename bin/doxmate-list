@@ -6,4 +6,4 @@
 
 var doxmate = require('../');
 
-doxmate.list();
+console.log(doxmate.list());
