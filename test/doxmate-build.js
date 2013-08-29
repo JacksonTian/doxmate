@@ -17,7 +17,7 @@ describe('doxmate build', function () {
     });
   });
 
-  it('#build custom output file', function (done) {
+  it('build custom output file', function (done) {
     exec('cd ' + __dirname + '/example' + ' && node ' + __dirname + '/../bin/doxmate build -o apidoc', function (err, stdout) {
       should.not.exist(err);
       should.exist(stdout);

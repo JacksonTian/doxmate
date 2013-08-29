@@ -18,10 +18,10 @@ program
 
 program.on('--help', function () {
   console.log('  Commands:');
-  console.log();
+  console.log('');
   console.log('    build            create a api docs');
   console.log('    list          show all api docs theme');
-  console.log();
+  console.log('');
   console.log('  Examples:');
   console.log('');
   console.log('    $ doxmate build -o <folder> -s pomelo');
@@ -65,7 +65,7 @@ if (fs.existsSync(local)) {
 }
 
 // execute command
-exec('node ' + bin + ' ' + args, function (err, stdout) {
+exec('node ' + bin + ' ' + args.join(' '), function (err, stdout) {
   if (err) {
     return console.error(err);
   }
