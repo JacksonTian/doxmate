@@ -1,3 +1,9 @@
+/**
+ * @author: youxiachai
+ * @Date: 13-8-30
+ * @version: 1.0
+ * To change this template use File | Settings | File Templates.
+ */
 "use strict";
 
 var fs = require('fs');
