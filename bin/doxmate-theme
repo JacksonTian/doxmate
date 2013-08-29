@@ -5,32 +5,26 @@
  */
 
 var program = require('commander'),
-  exec = require('child_process').exec,
-  path = require('path'),
   fs = require('fs'),
-  join = path.join,
+  path = require('path'),
   doxmate = require('../');
 
-program
-  .version(doxmate.version);
+// options
 
-// examples
+program
+  .option('-s, --skin <folder>', 'where is the skin.', 'default');
 
 program.on('--help', function () {
   console.log('  Commands:');
   console.log('');
-  console.log('    build            create a api docs');
   console.log('    list          show all api docs theme');
-  console.log('    theme         custom theme');
   console.log('');
   console.log('  Examples:');
   console.log('');
-  console.log('    $ doxmate build -o <folder> -s pomelo');
+  console.log('    $ doxmate theme list');
   console.log('');
   process.exit();
 });
-
-// parse argv
 
 program.parse(process.argv);
 
@@ -41,7 +35,6 @@ var args = process.argv.slice(3);
 // command
 
 var cmd = program.args[0];
-
 
 // display help
 
@@ -54,21 +47,10 @@ if (!cmd) {
   return showHelp();
 }
 
-// executable
-var bin = 'doxmate-' + cmd;
-
-// local
-var local = join(__dirname, bin);
-if (fs.existsSync(local)) {
-  bin = local;
-} else {
-  return showHelp();
+if (cmd === 'list') {
+  console.log(doxmate.list());
+} else if (cmd === 'options') {
+  doxmate.options(program.skin);
+  console.log('Generated at "' + path.resolve('.') + '".');
+  console.log('Please open "' + path.resolve('.', 'doxmate.json')+ '" to edit it.');
 }
-
-// execute command
-exec('node ' + bin + ' ' + args.join(' '), function (err, stdout) {
-  if (err) {
-    return console.error(err);
-  }
-  console.log(stdout);
-});
