@@ -26,4 +26,20 @@ describe('doxmate build', function () {
       done();
     });
   });
+
+  it('should create themes pomelo options', function (done) {
+    exec('cd ' + __dirname + '/example' + ' && node ' + __dirname + '/../bin/doxmate theme options -s pomelo', function (err, stdout) {
+      should.not.exist(err);
+      should.exist(stdout);
+      done();
+    });
+  });
+
+  it('should create themes wordpress options', function (done) {
+    exec('cd ' + __dirname + '/example' + ' && node ' + __dirname + '/../bin/doxmate theme options -s wordpress', function (err, stdout) {
+      should.not.exist(err);
+      should.exist(stdout);
+      done();
+    });
+  });
 });

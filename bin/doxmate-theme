@@ -52,5 +52,5 @@ if (cmd === 'list') {
 } else if (cmd === 'options') {
   doxmate.options(program.skin);
   console.log('Generated at "' + path.resolve('.') + '".');
-  console.log('Please open "' + path.resolve('.', 'doxmate.json')+ '" to edit it.');
+  console.log('You can edit "' + path.resolve('.', 'doxmate-'+program.skin+'.json')+ '"  configuration theme.');
 }
