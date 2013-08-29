@@ -22,7 +22,7 @@ program.parse(process.argv);
 
 if (program.output) {
   program.output = path.resolve(program.output);
-}else{
+} else {
   program.output = path.resolve('docs');
 }
 

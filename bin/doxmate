@@ -45,10 +45,14 @@ var cmd = program.args[0];
 
 // display help
 
-if (!cmd) {
+function showHelp () {
   process.stdout.write(program.helpInformation());
   program.emit('--help');
   process.exit();
+}
+
+if (!cmd) {
+  showHelp();
 }
 
 // executable
@@ -58,7 +62,11 @@ var bin = 'doxmate-' + cmd;
 // local
 
 var local = join(__dirname, bin);
-if (exists(local)) bin = local;
+if (exists(local)) {
+  bin = local;
+} else {
+  showHelp();
+}
 
 
 exec('node ' + bin + ' ' + args, function (err, stdout) {
