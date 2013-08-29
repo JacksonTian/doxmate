@@ -18,7 +18,8 @@ describe("Doxmate", function () {
       { level: 3, title: "wordpress风格" },
       { level: 2, title: 'Github与CommonJS规范' },
       { level: 2, title: '贡献者' },
-      { level: 2, title: 'License (MIT)' }
+      { level: 2, title: 'License (MIT)' },
+      { level: 2, title: "捐赠" }
     ];
     titles.should.eql(except);
   });

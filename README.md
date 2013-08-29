@@ -71,6 +71,8 @@ Doxmate将会扫描项目下的README.md和doc目录下的md文件，通过markd
 ```
 
 ## License (MIT)
+MIT许可，请自由享用。
+
 ```
 Copyright (c) 2012 Jackson Tian
 http://weibo.com/shyvo
@@ -94,3 +96,8 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTIO
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
 OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
+
+## 捐赠
+如果您觉得本模块对您有帮助，欢迎请作者一杯咖啡
+
+[![捐赠doxmate](https://img.alipay.com/sys/personalprod/style/mc/btn-index.png)](https://me.alipay.com/jacksontian)
