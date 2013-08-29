@@ -36,7 +36,7 @@
     </div>
     <header class="jumbotron subhead">
       <div class="container">
-        <h1>doxmate <small>Version: 0.0.12 By @Jackson Tian</small></h1>
+        <h1>doxmate <small>Version: 0.1.0 By @Jackson Tian</small></h1>
         <p class="lead">
           Generate your documentation.
         </p>
@@ -72,12 +72,6 @@
   </li>
 
   <li class="level_2">
-    <a href="#index_选择模版" title="选择模版">
-      <i class="icon-chevron-right"></i>选择模版
-    </a>
-  </li>
-
-  <li class="level_2">
     <a href="#index_Github与CommonJS规范" title="Github与CommonJS规范">
       <i class="icon-chevron-right"></i>Github与CommonJS规范
     </a>
@@ -102,38 +96,34 @@
       <section>
         <h1>Doxmate 不再为文档而发愁 <a href="http://travis-ci.org/JacksonTian/doxmate"><img src="https://secure.travis-ci.org/JacksonTian/doxmate.png?branch=master" alt="Build Status"></a></h1>
 <h2>来源</h2>
-<p>过去通常要自己维护API文档，这会是一件比较蛋疼的事情。所幸我们有<a href="https://github.com/visionmedia/dox">dox</a>，dox可以帮我们解析注解。但是dox不能帮我们任意生成文档。于是就有了doxmate，doxmate基于dox的注解对象，加入模板。在遵循Github和CommonJS的约定后，doxmate可以帮你的模块包快速生成文档。
-</p>
+<p>过去通常要自己维护API文档，这会是一件比较蛋疼的事情。所幸我们有<a href="https://github.com/visionmedia/dox">dox</a>，dox可以帮我们解析注解。但是dox不能帮我们任意生成文档。于是就有了doxmate，doxmate基于dox的注解对象，加入模板。在遵循Github和CommonJS的约定后，doxmate可以帮你的模块包快速生成文档。</p>
 <h2>Installation</h2>
-<p>安装
-</p>
-<pre><code>npm install doxmate -g</code></pre>
+<p>安装doxmate为全局工具：</p>
+<pre><code>$ npm install doxmate -g</code></pre>
 <h2>Usage</h2>
-<p>此处将以doxmate项目自身作为例子：
-</p>
+<p>此处将以doxmate项目自身作为例子：</p>
 <pre><code>// 签出doxmate项目
-git clone git://github.com/JacksonTian/doxmate.git ~/git/doxmate
-// 指定项目路径
-doxmate -i ~/git/doxmate
-// 在doc目录下将会得到文档
-open ~/git/doxmate/doc/index.html
+$ git clone git://github.com/JacksonTian/doxmate.git ~/git/doxmate
+// 去到项目目录
+$ cd doxmate
+$ doxmate build
+// 在docs目录下将会得到文档
+$ open ~/git/doxmate/doc/index.html
 // 或者 -o folder，可以将文档生成到指定的目录下
-doxmate -i ~/git/doxmate -o ~/output</code></pre>
+$ doxmate build -o ~/output</code></pre>
+<h3>选择模版</h3>
+<pre><code>// 带上-s参数后，可以选择doxmate提供的几种模板
+$ doxmate build -s wordpress
+//查看doxmate目前已有的模板
+$ doxmate list</code></pre>
 <h2>查看文档效果</h2>
-<p>通过将生成的文档放到gh-pages分支中，可以通过链接<a href="http://jacksontian.github.com/doxmate">http://jacksontian.github.com/doxmate</a>直接查看效果。
-
-</p>
-<h2>选择模版</h2>
-<pre><code>// 不带-s参数会采用默认模版
-doxmate -i ~/git/doxmate -o ~/output
-// 带上-s参数后，可以选择doxmate提供的几种模板
-doxmate -i ~/git/doxmate -o ~/output -s wordpress</code></pre>
-<p>目前提供两种模板
-
-</p>
+<p>通过将生成的文档放到gh-pages分支中，可以通过链接<a href="http://jacksontian.github.com/doxmate">http://jacksontian.github.com/doxmate</a>直接查看效果。</p>
+<p>目前提供两种模板</p>
 <ul>
-<li>默认风格<br><img src="https://raw.github.com/JacksonTian/doxmate/master/doc/default_style.png" alt="defautl 默认风格"></li>
-<li>wordpress风格<br><img src="https://raw.github.com/JacksonTian/doxmate/master/doc/wordpress_style.png" alt="wordpress"></li>
+<li>默认风格
+<img src="https://raw.github.com/JacksonTian/doxmate/master/doc/default_style.png" alt="defautl 默认风格"></li>
+<li>wordpress风格
+<img src="https://raw.github.com/JacksonTian/doxmate/master/doc/wordpress_style.png" alt="wordpress"></li>
 </ul>
 <h2>Github与CommonJS规范</h2>
 <ul>
@@ -141,19 +131,15 @@ doxmate -i ~/git/doxmate -o ~/output -s wordpress</code></pre>
 <li>CommonJS规范建议文档存在在<code>doc</code>目录下</li>
 <li>CommonJS规范建议代码存在在<code>lib</code>目录下</li>
 </ul>
-<p>Doxmate将会扫描项目下的README.md和doc目录下的md文件，通过markdown渲染，生成页面。扫描lib目录下的文件，通过dox解析内容，生成API文档页面。
-
-</p>
+<p>Doxmate将会扫描项目下的README.md和doc目录下的md文件，通过markdown渲染，生成页面。扫描lib目录下的文件，通过dox解析内容，生成API文档页面。</p>
 <h2>贡献者</h2>
-<p>以下数据由<code>git-summary</code>于2012-10-27生成：
-
-</p>
+<p>以下数据由<code>git-summary</code>于2012-10-27生成：</p>
 <pre><code> project  : doxmate
  repo age : 4 weeks
  active   : 14 days
  commits  : 54
  files    : 28
- authors  : 
+ authors  :
     49    Jackson Tian            90.7%
      5    Lei Zongmin             9.3%</code></pre>
 <h2>License (MIT)</h2>
@@ -162,24 +148,25 @@ http://weibo.com/shyvo
 
 The MIT License
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this 
-software and associated documentation files (the &quot;Software&quot;), to deal in the Software 
-without restriction, including without limitation the rights to use, copy, modify, 
-merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
-permit persons to whom the Software is furnished to do so, subject to the 
+Permission is hereby granted, free of charge, to any person obtaining a copy of this
+software and associated documentation files (the &quot;Software&quot;), to deal in the Software
+without restriction, including without limitation the rights to use, copy, modify,
+merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to the
 following conditions:
 
-The above copyright notice and this permission notice shall be included in all copies 
+The above copyright notice and this permission notice shall be included in all copies
 or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
-PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF 
-CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE 
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
 OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</code></pre>
 
       </section>
+  
     </div>
   </div>
 </div>
