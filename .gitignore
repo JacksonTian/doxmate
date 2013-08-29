@@ -6,10 +6,13 @@ lib-cov
 *.out
 *.pid
 *.gz
-
+.idea
 pids
 logs
 results
-
+jasmine-1.1.0.js
+JasmineAdapter-1.1.2.js
 node_modules
 npm-debug.log
+test/example/apidoc
+test/example/docs
