@@ -5,45 +5,71 @@
  */
 
 var program = require('commander'),
-  fs = require('fs'),
+  exec = require('child_process').exec,
   path = require('path'),
+  join = path.join,
+  doxmate = require('../'),
   env = require('../lib/env.js'),
-  doxmate = require('../');
-
-// options
+  exists = env.existsSync;
 
 program
   .version(doxmate.version)
-  .option('-o, --output <folder>', 'which folder to output.')
-  .option('-i, --input <folder>', 'where is the package.')
-  .option('-s, --skin <folder>', 'where is the skin.', 'default');
 
 // examples
 
-program.on('--help', function(){
+program.on('--help', function () {
+  console.log('  Commands:');
+  console.log();
+  console.log('    build            create a api docs');
+  console.log('    list          show all api docs theme');
+  console.log();
   console.log('  Examples:');
   console.log('');
-  console.log('    $ doxmate -i <folder>');
+  console.log('    $ doxmate build -o <folder> -s pomelo');
   console.log('');
+  process.exit();
 });
 
 // parse argv
+
 program.parse(process.argv);
 
-if (!program.input) {
-  console.log('$ doxmate -i <folder> [-o <folder>]');
+// args void of cmd
+
+var args = process.argv.slice(3);
+
+// command
+
+var cmd = program.args[0];
+
+
+// display help
+
+function showHelp () {
+  process.stdout.write(program.helpInformation());
+  program.emit('--help');
+  process.exit();
 }
 
-if (!program.output) {
-  program.output = path.resolve('doc');
+if (!cmd) {
+  showHelp();
 }
 
-program.output = path.resolve(program.output);
+// executable
 
-var docPath = program.output;
-var docExists = env.existsSync(docPath);
-if (!docExists) {
-  fs.mkdirSync(docPath, '0777');
+var bin = 'doxmate-' + cmd;
+
+// local
+
+var local = join(__dirname, bin);
+if (exists(local)) {
+  bin = local;
+} else {
+  showHelp();
 }
-// process stdin
-doxmate.process(program.input, program.output, program.skin);
+
+
+exec('node ' + bin + ' ' + args, function (err, stdout) {
+  if (err) return console.error(err);
+  console.log(stdout);
+});

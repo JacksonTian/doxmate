@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var doxmate = require('../');
+
+doxmate.list();
