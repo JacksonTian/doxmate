@@ -8,6 +8,9 @@ Doxmate 不再为文档而发愁 [![Build Status](https://secure.travis-ci.org/J
 npm install doxmate -g
 ```
 ## Usage
+
+**doxmate version <= 0.0.13**
+
 此处将以doxmate项目自身作为例子：
 ```
 // 签出doxmate项目
@@ -19,16 +22,40 @@ open ~/git/doxmate/doc/index.html
 // 或者 -o folder，可以将文档生成到指定的目录下
 doxmate -i ~/git/doxmate -o ~/output
 ```
-## 查看文档效果
-通过将生成的文档放到gh-pages分支中，可以通过链接<http://jacksontian.github.com/doxmate>直接查看效果。
 
-## 选择模版
+### 选择模版
 ```
 // 不带-s参数会采用默认模版
 doxmate -i ~/git/doxmate -o ~/output
 // 带上-s参数后，可以选择doxmate提供的几种模板
 doxmate -i ~/git/doxmate -o ~/output -s wordpress
 ```
+
+**doxmate version > 0.0.13**
+
+```
+// 签出doxmate项目
+git clone git://github.com/JacksonTian/doxmate.git ~/git/doxmate
+// 去到项目目录
+cd doxmate
+doxmate build
+// 在docs目录下将会得到文档
+open ~/git/doxmate/docs/index.html
+// 或者 -o folder，可以将文档生成到指定的目录下
+doxmate build -o ~/output
+```
+
+### 选择模版
+```
+// 带上-s参数后，可以选择doxmate提供的几种模板
+doxmate build -s wordpress
+//查看doxmate目前已有的模板
+doxmate list
+```
+
+## 查看文档效果
+通过将生成的文档放到gh-pages分支中，可以通过链接<http://jacksontian.github.com/doxmate>直接查看效果。
+
 目前提供两种模板
 
 - 默认风格
