@@ -14,9 +14,12 @@ describe("Doxmate", function () {
       { level: 2, title: 'Usage' },
       { level: 3, title: '选择模版' },
       { level: 2, title: '查看文档效果' },
+      { level: 3, title: "默认风格" },
+      { level: 3, title: "wordpress风格" },
       { level: 2, title: 'Github与CommonJS规范' },
       { level: 2, title: '贡献者' },
-      { level: 2, title: 'License (MIT)' }
+      { level: 2, title: 'License (MIT)' },
+      { level: 2, title: "捐赠" }
     ];
     titles.should.eql(except);
   });

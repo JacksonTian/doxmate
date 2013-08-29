@@ -12,7 +12,6 @@ describe('doxmate list', function () {
     exec('node ' + __dirname + '/../bin/doxmate list', function (err, stdout) {
       should.not.exist(err);
       stdout.should.include('default');
-      stdout.should.include('party');
       stdout.should.include('pomelo');
       stdout.should.include('wordpress');
       done();
