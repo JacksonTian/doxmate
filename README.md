@@ -9,7 +9,7 @@ npm install doxmate -g
 ```
 ## Usage
 
-### doxmate version <= 0.0.13
+**doxmate version <= 0.0.13**
 
 此处将以doxmate项目自身作为例子：
 ```
@@ -31,7 +31,7 @@ doxmate -i ~/git/doxmate -o ~/output
 doxmate -i ~/git/doxmate -o ~/output -s wordpress
 ```
 
-### doxmate version > 0.0.13
+**doxmate version > 0.0.13**
 
 ```
 // 签出doxmate项目
