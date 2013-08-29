@@ -11,18 +11,18 @@
 		<h6>doxmate is awesome</h6>
 	</div>
 </div>
-  <% if (locals.tracker && tracker) { %>
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', '<%= tracker%>']);
-      _gaq.push(['_trackPageview']);
-      (function() {
+<% if (options.plugins.googleanlytics) { %>
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '<%= options.plugins.googleanlytics %>']);
+    _gaq.push(['_trackPageview']);
+    (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
-  <% } %>
+    })();
+</script>
+<% } %>
 
   <script>
   	var splited = location.pathname.split('/');
