@@ -39,9 +39,10 @@ $ doxmate list
 
 目前提供两种模板
 
-- 默认风格
+### 默认风格
 ![defautl 默认风格](https://raw.github.com/JacksonTian/doxmate/master/doc/default_style.png)
-- wordpress风格
+
+### wordpress风格
 ![wordpress](https://raw.github.com/JacksonTian/doxmate/master/doc/wordpress_style.png)
 
 ## Github与CommonJS规范
@@ -57,13 +58,15 @@ Doxmate将会扫描项目下的README.md和doc目录下的md文件，通过markd
 
 ```
  project  : doxmate
- repo age : 4 weeks
- active   : 14 days
- commits  : 54
- files    : 28
- authors  :
-    49	Jackson Tian            90.7%
-     5	Lei Zongmin             9.3%
+ repo age : 11 months
+ active   : 21 days
+ commits  : 89
+ files    : 94
+ authors  : 
+    71  Jackson Tian            79.8%
+    10  youxiachai              11.2%
+     5  Lei Zongmin             5.6%
+     3  aleafs                  3.4%
 
 ```
 
