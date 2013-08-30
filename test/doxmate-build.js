@@ -18,7 +18,23 @@ describe('doxmate build', function () {
   });
 
   it('build custom output file', function (done) {
-    exec('cd ' + __dirname + '/example' + ' && node ' + __dirname + '/../bin/doxmate build -o apidoc', function (err, stdout) {
+    exec('cd ' + __dirname + '/example' + ' && node ' + __dirname + '/../bin/doxmate build -o default', function (err, stdout) {
+      should.not.exist(err);
+      should.exist(stdout);
+      done();
+    });
+  });
+
+  it('build pomelo theme', function (done) {
+    exec('cd ' + __dirname + '/example' + ' && node ' + __dirname + '/../bin/doxmate build -o pomelo -s pomelo', function (err, stdout) {
+      should.not.exist(err);
+      should.exist(stdout);
+      done();
+    });
+  });
+
+  it('build wordpress theme', function (done) {
+    exec('cd ' + __dirname + '/example' + ' && node ' + __dirname + '/../bin/doxmate build -o wordpress -s wordpress', function (err, stdout) {
       should.not.exist(err);
       should.exist(stdout);
       done();

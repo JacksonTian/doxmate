@@ -15,4 +15,7 @@ JasmineAdapter-1.1.2.js
 node_modules
 npm-debug.log
 test/example/doc
-test/example/apidoc
+test/example/default
+test/example/pomelo
+test/example/wordpress
+test/example/doxmate*
