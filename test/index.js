@@ -13,6 +13,7 @@ describe("Doxmate", function () {
       { level: 2, title: 'Installation' },
       { level: 2, title: 'Usage' },
       { level: 3, title: '选择模版' },
+      { level: 3, title: '自定义模版' },
       { level: 2, title: '查看文档效果' },
       { level: 3, title: "默认风格" },
       { level: 3, title: "wordpress风格" },
