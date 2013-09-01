@@ -29,7 +29,7 @@
 <% if (comment.code) { %>
   <%-comment.description.full%>
 <% } %>
-  <table class="table">
+  <table class="table table-striped table-bordered table-hover table-condensed">
   <% if (comment.ctx) { %>
     <tr>
       <td><%=types[comment.ctx.type] %></td>
