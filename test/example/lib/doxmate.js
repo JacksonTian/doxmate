@@ -82,6 +82,11 @@ var getFolders = function (basedir) {
   return map;
 };
 
+/**
+ *
+ * @param folder
+ * @return {Object}object {content: markdown(content), indexs: indexs}
+ */
 var getReadme = function (folder) {
   var content = fs.readFileSync(path.join(folder, 'README.md'), 'utf8');
   var indexs = exports.getIndexs(content, 2, function (item) {
