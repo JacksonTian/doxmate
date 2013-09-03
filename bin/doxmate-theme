@@ -18,6 +18,7 @@ program.on('--help', function () {
   console.log('  Commands:');
   console.log('');
   console.log('    list          show all api docs theme');
+  console.log('    configure     custom api doc theme');
   console.log('');
   console.log('  Examples:');
   console.log('');
@@ -49,7 +50,7 @@ if (!cmd) {
 
 if (cmd === 'list') {
   console.log(doxmate.list());
-} else if (cmd === 'options') {
+} else if (cmd === 'configure') {
   doxmate.options(program.skin);
   console.log('Generated at "' + path.resolve('.') + '".');
   console.log('You can edit "' + path.resolve('.', 'doxmate-templates/'+program.skin)+ '"  configuration theme style.');
