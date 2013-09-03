@@ -44,7 +44,7 @@ $ doxmate theme configure
 // 带上-s参数后，可以选择doxmate提供的几种模板
 $ doxmate theme configure -s pomelo
 
-//这个时候.将会在当前目录生成doxmate-templates/主题名 的目录,在创建文档的时候,优先读取该目录.这个时候,主题随便你改...
+//这个时候，将会在当前目录生成doxmate-templates/主题名 的目录，在创建文档的时候，优先读取该目录.这个时候，主题随便你改。
 ```
 ## 查看文档效果
 通过将生成的文档放到gh-pages分支中，可以通过链接<http://jacksontian.github.com/doxmate>直接查看效果。
