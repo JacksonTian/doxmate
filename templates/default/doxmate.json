@@ -1,8 +1,4 @@
 {
-  "outputSourceFiles": true,
-  "copyright": "@朴灵",
-  "footer": "<p>此文档通过doxmate生成。主题借鉴Bootstrap API文档风格，注解基于<a href='https://github.com/visionmedia/dox'>Dox</a>。欢迎关注doxmate作者<a href='http://weibo.com/shyvo' target='_blank'>@朴灵</a></p><ul class='footer-links'><li><a href='https://github.com/visionmedia/dox'>Dox主页</a></li><li><a href='http://html5ify.com/doxmate'>Doxmate主页</a></li><li><a href='https://github.com/JacksonTian/doxmate'>Doxmate源码</a></li><li><a href='https://github.com/JacksonTian/doxmate/issues?state=open'>提交bug</a></li></ul>",
-  "plugins" : {
-    "googleanlytics" : ""
-  }
+  "name": "default",
+  "version": "0.0.1"
 }

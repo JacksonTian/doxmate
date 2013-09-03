@@ -32,5 +32,10 @@
     "mocha": "*"
   },
   "author": "Jackson Tian",
-  "license": "MIT"
+  "license": "MIT",
+  "outputSourceFiles": false,
+  "copyright": "@朴灵",
+  "plugins" : {
+    "googleanlytics" : ""
+  }
 }
