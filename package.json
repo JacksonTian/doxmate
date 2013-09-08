@@ -1,6 +1,6 @@
 {
   "name": "doxmate",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Generate your documentation.",
   "main": "index.js",
   "scripts": {
@@ -9,8 +9,7 @@
   "bin": {
     "doxmate": "bin/doxmate",
     "doxmate-build": "bin/doxmate-build",
-    "doxmate-list": "bin/doxmate-list",
-    "doxmate-install": "bin/doxmate-install"
+    "doxmate-theme": "bin/doxmate-theme"
   },
   "keywords": [
     "documentation",
