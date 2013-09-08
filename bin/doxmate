@@ -15,12 +15,10 @@ program
   .version(doxmate.version);
 
 // examples
-
 program.on('--help', function () {
   console.log('  Commands:');
   console.log('');
   console.log('    build            create a api docs');
-  console.log('    list          show all api docs theme');
   console.log('    theme         custom theme');
   console.log('');
   console.log('  Examples:');
@@ -31,20 +29,15 @@ program.on('--help', function () {
 });
 
 // parse argv
-
 program.parse(process.argv);
 
 // args void of cmd
-
 var args = process.argv.slice(3);
 
 // command
-
 var cmd = program.args[0];
 
-
 // display help
-
 function showHelp() {
   process.stdout.write(program.helpInformation());
   program.emit('--help');
@@ -62,6 +55,7 @@ var local = join(__dirname, bin);
 if (fs.existsSync(local)) {
   bin = local;
 } else {
+  console.log('Can\'t find command ' + cmd + '.');
   return showHelp();
 }
 

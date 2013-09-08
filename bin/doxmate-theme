@@ -10,7 +10,6 @@ var program = require('commander'),
   doxmate = require('../');
 
 // options
-
 program
   .option('-s, --skin <folder>', 'where is the skin.', 'default');
 
@@ -18,7 +17,7 @@ program.on('--help', function () {
   console.log('  Commands:');
   console.log('');
   console.log('    list          show all api docs theme');
-  console.log('    configure     custom api doc theme');
+  console.log('    export        export theme');
   console.log('');
   console.log('  Examples:');
   console.log('');
@@ -30,15 +29,12 @@ program.on('--help', function () {
 program.parse(process.argv);
 
 // args void of cmd
-
 var args = process.argv.slice(3);
 
 // command
-
 var cmd = program.args[0];
 
 // display help
-
 function showHelp() {
   process.stdout.write(program.helpInformation());
   program.emit('--help');
@@ -50,10 +46,11 @@ if (!cmd) {
 
 if (cmd === 'list') {
   console.log(doxmate.list());
-} else if (cmd === 'configure') {
-  doxmate.options(program.skin);
-  console.log('Generated at "' + path.resolve('.') + '".');
-  console.log('You can edit "' + path.resolve('.', 'doxmate-templates/'+program.skin)+ '"  configuration theme style.');
+} else if (cmd === 'export') {
+  doxmate.export(program.skin, function () {
+    console.log('Exported at "' + path.resolve('.') + '".');
+    console.log('You can edit "' + path.resolve('.', 'doxmate-templates/' + program.skin) + '" for custom theme style.');
+  });
 } else {
   return showHelp();
 }

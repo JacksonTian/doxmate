@@ -1,9 +1,0 @@
-#!/usr/bin/env node
-
-/**
- * Module dependencies.
- */
-
-var doxmate = require('../');
-
-console.log(doxmate.install());

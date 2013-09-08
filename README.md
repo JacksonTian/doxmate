@@ -30,21 +30,21 @@ $ doxmate build -o ~/output
 ```
 // 带上-s参数后，可以选择doxmate提供的几种模板
 $ doxmate build -s wordpress
-//查看doxmate目前已有的模板
-$ doxmate list
 ```
 
 ### 自定义模版
+如果doxmate提供的几个模板不能满足你的需求
 
 ```
-//查看doxmate目前已有的模板
+// 查看doxmate目前已有的模板
 $ doxmate theme list
-//在当前项目目录生成生成主题模板
-$ doxmate theme configure
+// 在当前项目目录导出主题模板
+$ doxmate theme export
+// 将会在当前目录下生成{doxmate-templates/主题名}的目录
 // 带上-s参数后，可以选择doxmate提供的几种模板
-$ doxmate theme configure -s pomelo
-
-//这个时候，将会在当前目录生成doxmate-templates/主题名 的目录，在创建文档的时候，优先读取该目录.这个时候，主题随便你改。
+$ doxmate theme export -s pomelo
+// 通过doxmate build创建文档的时，优先读取该目录
+// 导出主题模板后，自行修改，即可实现自定义模板的目的
 ```
 ## 查看文档效果
 通过将生成的文档放到gh-pages分支中，可以通过链接<http://jacksontian.github.com/doxmate>直接查看效果。

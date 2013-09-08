@@ -11,10 +11,10 @@
 		<h6>doxmate is awesome</h6>
 	</div>
 </div>
-<% if (options.plugins.googleanlytics) { %>
+<% if (options.tracker) { %>
 <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', '<%= options.plugins.googleanlytics %>']);
+    _gaq.push(['_setAccount', '<%= options.tracker %>']);
     _gaq.push(['_trackPageview']);
     (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
