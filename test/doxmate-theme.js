@@ -8,7 +8,7 @@
 
 var exec = require('child_process').exec;
 var should = require('should');
-describe('doxmate build', function () {
+describe('doxmate theme', function () {
   it('should show default themes', function (done) {
     exec('node ' + __dirname + '/../bin/doxmate theme list', function (err, stdout) {
       should.not.exist(err);
@@ -19,26 +19,35 @@ describe('doxmate build', function () {
     });
   });
 
-  it('should create themes options', function (done) {
-    exec('cd ' + __dirname + '/example' + ' && node ' + __dirname + '/../bin/doxmate theme options', function (err, stdout) {
+  it('should export theme ok', function (done) {
+    exec('cd ' + __dirname + '/example' + ' && node ' + __dirname + '/../bin/doxmate theme export', function (err, stdout) {
       should.not.exist(err);
-      should.exist(stdout);
+      stdout.should.include('Exported at ');
+      stdout.should.include('You can edit ');
+      stdout.should.include('default');
+      stdout.should.include(' for custom theme style.');
       done();
     });
   });
 
-  it('should create themes pomelo options', function (done) {
-    exec('cd ' + __dirname + '/example' + ' && node ' + __dirname + '/../bin/doxmate theme options -s pomelo', function (err, stdout) {
+  it('should export theme pomelo ok', function (done) {
+    exec('cd ' + __dirname + '/example' + ' && node ' + __dirname + '/../bin/doxmate theme export -s pomelo', function (err, stdout) {
       should.not.exist(err);
-      should.exist(stdout);
+      stdout.should.include('Exported at ');
+      stdout.should.include('You can edit ');
+      stdout.should.include('pomelo');
+      stdout.should.include(' for custom theme style.');
       done();
     });
   });
 
-  it('should create themes wordpress options', function (done) {
-    exec('cd ' + __dirname + '/example' + ' && node ' + __dirname + '/../bin/doxmate theme options -s wordpress', function (err, stdout) {
+  it('should export themes wordpress ok', function (done) {
+    exec('cd ' + __dirname + '/example' + ' && node ' + __dirname + '/../bin/doxmate theme export -s wordpress', function (err, stdout) {
       should.not.exist(err);
-      should.exist(stdout);
+      stdout.should.include('Exported at ');
+      stdout.should.include('You can edit ');
+      stdout.should.include('wordpress');
+      stdout.should.include(' for custom theme style.');
       done();
     });
   });
