@@ -1,6 +1,6 @@
 {
   "name": "doxmate",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Generate your documentation.",
   "main": "index.js",
   "scripts": {
