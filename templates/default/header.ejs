@@ -13,52 +13,59 @@
     <link rel="stylesheet" type="text/css" href="assets/base.css" />
   </head>
   <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="./index.html"><%=name%></a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-            <% if (Object.keys(apis).length) { %>
-              <li>
-                <a href="./api.html">API Docs</a>
-              </li>
-            <% }
-            var keys = Object.keys(docs);
-            keys.sort(function (a, b) {
-              return a.substring(0, 1) !== '_' ? -1 : 1;
-            });
-            var slice = Object.keys(apis).length ? 6 : 7;
-            var display = keys.slice(0, slice);
-            for (var i = 0; i < display.length; i++) {
-              var key = display[i];
-            %>
-              <li>
-                <a href="./<%=key%>.html"><%=key%></a>
-              </li>
-            <% } %>
-            <% if (keys.length > slice) { %>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">更多 <b class="caret"></b></a>
-                <ul class="dropdown-menu" role="menu">
-                <%
-                var more = keys.slice(slice);
-                for (var i = 0; i < more.length; i++) {
-                  var key = more[i];
-                %>
-                  <li>
-                    <a href="./<%=key%>.html"><%=key%></a>
-                  </li>
-                <%
-                } %>
-                </ul>
-              </li>
-            <% } %>
-            </ul>
-          </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="./index.html"><%=name%></a>
         </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+          <% if (Object.keys(apis).length) { %>
+            <li>
+              <a href="./api.html">API Docs</a>
+            </li>
+          <% }
+          var keys = Object.keys(docs);
+          keys.sort(function (a, b) {
+            return a.substring(0, 1) !== '_' ? -1 : 1;
+          });
+          var slice = Object.keys(apis).length ? 6 : 7;
+          var display = keys.slice(0, slice);
+          for (var i = 0; i < display.length; i++) {
+            var key = display[i];
+          %>
+            <li>
+              <a href="./<%=key%>.html"><%=key%></a>
+            </li>
+          <% } %>
+          <% if (keys.length > slice) { %>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">更多 <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu">
+              <%
+              var more = keys.slice(slice);
+              for (var i = 0; i < more.length; i++) {
+                var key = more[i];
+              %>
+                <li>
+                  <a href="./<%=key%>.html"><%=key%></a>
+                </li>
+              <%
+              } %>
+              </ul>
+            </li>
+          <% } %>
+          </ul>
+        </div><!-- /.navbar-collapse -->
       </div>
-    </div>
+    </nav>
     <header class="jumbotron subhead">
       <div class="container">
         <h1><%= name %> <small>Version: <%= version %> By @<%= author %></small></h1>

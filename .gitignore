@@ -19,3 +19,4 @@ test/example/default
 test/example/pomelo
 test/example/wordpress
 test/example/doxmate*
+.DS_Store
