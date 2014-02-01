@@ -13,6 +13,7 @@ var program = require('commander'),
 
 program
   .option('-o, --output <folder>', 'which folder to output.')
+  .option('-d, --dir <folder>', 'which folder to find source code.')
   .option('-s, --skin <folder>', 'where is the skin.', 'default');
 
 // parse argv
@@ -31,7 +32,6 @@ if (!docExists) {
   fs.mkdirSync(docPath, '0777');
 }
 
-doxmate.process(path.resolve('.'), program.output, program.skin);
-
+doxmate.process(path.resolve('.'), program.output, program.skin, program.dir);
 console.log('Generated at "' + program.output + '".');
 console.log('Please open "' + program.output + '/index.html" to view it');
