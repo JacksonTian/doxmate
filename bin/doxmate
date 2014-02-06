@@ -18,12 +18,12 @@ program
 program.on('--help', function () {
   console.log('  Commands:');
   console.log('');
-  console.log('    build            create a api docs');
+  console.log('    build         create a api docs');
   console.log('    theme         custom theme');
   console.log('');
   console.log('  Examples:');
   console.log('');
-  console.log('    $ doxmate build -o <folder> -s pomelo');
+  console.log('    $ doxmate build -o <folder> -s pomelo -d src/js/');
   console.log('');
   process.exit();
 });
