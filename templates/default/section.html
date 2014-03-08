@@ -1,7 +1,7 @@
 <section id="api_<%=basename%>" class="api">
   <h2><%=basename%>: API索引</h2>
   <ul class="indexs">
-  <% 
+  <%
   var indexs = comments.filter(function (item) {
     return !item.ignore && item.ctx;
   }).map(function (item) {
@@ -10,7 +10,7 @@
     item.receiver = item.receiver || '';
   %>
     <li>
-      <a href="#<%= item.receiver + '_' + item.name%>"><%= item.name%></a>
+      <a href="#<%= basename  + '_' + item.receiver + '_' + item.name%>"><%= item.name%></a>
     </li>
 <% }); %>
   </ul>
@@ -22,7 +22,7 @@
   }
 %>
   <% if (comment.ctx) { %>
-  <h3 id="<%= comment.ctx.receiver + '_' + comment.ctx.name%>">
+  <h3 data-id="<%= basename + '_' + comment.ctx.receiver + '_' + comment.ctx.name%>">
     <%=comment.ctx.name%>
   </h3>
   <% } %>

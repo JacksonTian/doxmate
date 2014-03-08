@@ -29,7 +29,7 @@
         $(".content").find('h1, h2, h3, h4, h5, h6').each(function () {
           var node = $(this);
           // 总是设置id
-          node.attr("id", "index_" + node.text());
+          node.attr("id", node.data('id') || "index_" + node.text());
           node.css("paddingTop", 50);
         });
       });
