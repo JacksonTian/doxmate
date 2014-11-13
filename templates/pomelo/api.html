@@ -11,7 +11,7 @@
               <h1><%= name%> <span class='version'><%=version%></span> <span><%=author%></span></h1>
             </div>
           <% for (var key in apis) {
-            var api = apis[key];
+            var api = apis[key].html;
           %>
             <%-api%>
           <% } %>

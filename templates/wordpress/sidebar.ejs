@@ -2,6 +2,23 @@
 <% for (var key in apis) { %>
   <li>
     <a href="#api_<%=key%>"><%=key%></a>
+
+    <ul class="indexs">
+    <%
+      var comments = apis[key].comments;
+      var indexs = comments.filter(function (item) {
+        return !item.ignore && item.ctx;
+      }).map(function (item) {
+        return item.ctx;
+      }).forEach(function (item) {
+        item.receiver = item.receiver || '';
+      %>
+      <li>
+        <a href="#<%= key + '_' + item.receiver + '_' + item.name%>"><%= item.name%></a>
+      </li>
+    <% }); %>
+    </ul>
+
   </li>
 <% } %>
 </ul>
