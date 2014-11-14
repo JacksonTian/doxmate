@@ -5,7 +5,7 @@
     <div class="accordion-group">
       <div class="accordion-heading">
         <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#<%=key%>" href="#collapse_<%=key%>">
-          ▷
+          <div id="collapse_marker_<%=key%>" style="margin-left: 5px; margin-righ: 5px; display: inline-block;">▷</div>
         </a>
         <a href="#api_<%=key%>"><i class="icon-chevron-right"></i><%=key%></a>
       </div>
@@ -31,6 +31,15 @@
     </div>
   </div>
   </li>
+  
+  <script type="text/javascript">
+    $('#collapse_marker_<%=key%>').on('click', function() {
+       if($('.accordion-toggle').hasClass('collapsed')) {
+         $('#collapse_marker_<%=key%>').text('▽');
+       } else {
+         $('#collapse_marker_<%=key%>').text('▷');
+       }
+    });
+  </script>
 <% } %>
 </ul>
-
