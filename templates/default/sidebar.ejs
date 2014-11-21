@@ -4,10 +4,12 @@
   <div class="accordion" id="<%=key%>">
     <div class="accordion-group">
       <div class="accordion-heading">
-        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#<%=key%>" href="#collapse_<%=key%>">
-          <div id="collapse_marker_<%=key%>" style="margin-left: 5px; margin-righ: 5px; display: inline-block;">▷</div>
-        </a>
-        <a href="#api_<%=key%>"><i class="icon-chevron-right"></i><%=key%></a>
+      	<div id="collapse_marker_<%=key%>" style="margin-left: 5px; margin-righ: 5px; display: inline-block;">
+					<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#<%=key%>" href="#collapse_<%=key%>">
+						 <span id="toggle_<%=key%>" class="glyphicon glyphicon-chevron-right"></span>
+					</a>
+        </div>
+        <a href="#api_<%=key%>"> <%=key%></a>
       </div>
       <div class="accordion-body collapse" id="collapse_<%=key%>">
         <div class="accordion-inner">
@@ -34,11 +36,7 @@
   
   <script type="text/javascript">
     $('#collapse_marker_<%=key%>').on('click', function() {
-       if($('.accordion-toggle').hasClass('collapsed')) {
-         $('#collapse_marker_<%=key%>').text('▽');
-       } else {
-         $('#collapse_marker_<%=key%>').text('▷');
-       }
+    	$('#toggle_<%=key%>').toggleClass('glyphicon-chevron-right glyphicon-chevron-down');
     });
   </script>
 <% } %>
