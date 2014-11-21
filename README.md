@@ -49,13 +49,15 @@ $ doxmate theme export -s pomelo
 ## 查看文档效果
 通过将生成的文档放到gh-pages分支中，可以通过链接<http://jacksontian.github.com/doxmate>直接查看效果。
 
-目前提供两种模板
+目前提供三种模板
 
 ### 默认风格
 ![defautl 默认风格](https://raw.github.com/JacksonTian/doxmate/master/doc/default_style.png)
 
 ### wordpress风格
 ![wordpress](https://raw.github.com/JacksonTian/doxmate/master/doc/wordpress_style.png)
+
+### pomelo风格
 
 ## Github与CommonJS规范
 - 每个github项目下应该有一个README.md文件
