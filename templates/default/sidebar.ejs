@@ -1,7 +1,43 @@
 <ul class="nav nav-list bs-docs-sidenav affix">
 <% for (var key in apis) { %>
   <li>
-    <a href="#api_<%=key%>"><i class="icon-chevron-right"></i><%=key%></a>
+		<div class="accordion" id="<%=key%>">
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a href="#api_<%=key%>" class="api_side_link"><%=key%></a>
+					<div class="accordion-marker" id="collapse_marker_<%=key%>">
+						<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#<%=key%>" href="#collapse_<%=key%>">
+							 <span id="toggle_<%=key%>" class="glyphicon glyphicon-chevron-right"></span>
+						</a>
+					</div>
+				</div>
+				<div class="accordion-body collapse" id="collapse_<%=key%>">
+					<div class="accordion-inner">
+					<ul class="indexs">
+					<%
+						var comments = apis[key].comments;
+						var indexs = comments.filter(function (item) {
+							return !item.ignore && item.ctx;
+						}).map(function (item) {
+							return item.ctx;
+						}).forEach(function (item) {
+							item.receiver = item.receiver || '';
+						%>
+						<li>
+							<a href="#<%= key + '_' + item.receiver + '_' + item.name%>"><%= item.name%></a>
+						</li>
+					<% }); %>
+					</ul>
+					</div>
+				</div>
+			</div>
+		</div>
   </li>
+  
+  <script type="text/javascript">
+    $('#collapse_marker_<%=key%>').on('click', function() {
+    	$('#toggle_<%=key%>').toggleClass('glyphicon-chevron-right glyphicon-chevron-down');
+    });
+  </script>
 <% } %>
 </ul>
