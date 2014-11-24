@@ -46,8 +46,7 @@
     <tr>
       <td><%=types[tag.type]%></td>
       <td><%=tag.types && tag.types.join(',')%></td>
-      <td colspan="2"><%=tag.description%></td>
-    </tr>
+      <td colspan="2"><pre><%=tag.description%></pre></td> </tr>
   <% break;
     case 'param':
     %>
@@ -62,6 +61,27 @@
     <tr>
       <td><%=types[tag.type]%></td>
       <td colspan="3"><%=tag.visibility%></td>
+    </tr>
+  <% break;
+    case 'example':
+  %>
+    <tr>
+      <td><%=types[tag.type]%></td>
+      <td colspan="3"><pre><%=tag.string%></pre></td>
+    </tr>
+  <% break;
+    case 'exception':
+  %>
+    <tr>
+      <td><%=types[tag.type]%></td>
+      <td colspan="3"><%=tag.string%></td>
+    </tr>
+  <% break;
+    case 'callmethod':
+  %>
+    <tr>
+      <td><%=types[tag.type]%></td>
+      <td colspan="3"><%=tag.string%></td>
     </tr>
   <% break;
     default:%>

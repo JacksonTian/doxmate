@@ -33,7 +33,8 @@
   %>
       <div class='params'>
         <h4>Returns</h4>
-        <p><%=tag.types && tag.types.join(',')%> - <%=tag.description%></p>
+        <p><%=tag.types && tag.types.join(',')%></p>
+        <p><pre><%=tag.description%></pre></p>
       </div>
   <% break;
     case 'param':
@@ -52,18 +53,42 @@
   <% break;
     case 'api':
   %>
-    <tr>
-      <td><%=types[tag.type]%></td>
-      <td colspan="3"><%=tag.visibility%></td>
-    </tr>
+    <div class='params'>
+      <h4>API</h4>
+      <p><%=types[tag.type]%></p>
+      <p><%=tag.visibility%></p>
+    </div>
+  <% break;
+    case 'example':
+  %>
+    <div class='params'>
+      <h4>Example</h4>
+      <p><%=types[tag.type]%></p>
+      <p><pre><%=tag.string%></pre></p>
+    </div>
+  <% break;
+    case 'exception':
+  %>
+    <div class='params'>
+      <h4>Exception</h4>
+      <p><%=types[tag.type]%></p>
+      <p><pre><%=tag.string%></pre></p>
+    </div>
+  <% break;
+    case 'callmethod':
+  %>
+    <div class='params'>
+      <h4>Call Method</h4>
+      <p><%=types[tag.type]%></p>
+      <p><pre><%=tag.string%></pre></p>
+    </div>
   <% break;
     default:%>
-    <tr>
-      <td><%=types[tag.type]%></td>
-      <td><%=tag.types && tag.types.join(',')%></td>
-      <td><%=tag.name%></td>
-      <td><%=tag.description%></td>
-    </tr>
+    <div class='params'>
+      <h4><%=types[tag.type]%></h4>
+      <p><%=tag.types && tag.types.join(',')%> - <%=tag.name%></p>
+      <p><%=tag.description%></p>
+    </div>
   <% } %>
 <% } %>
   <% if (comment.code && options.outputSourceFiles) { %>
