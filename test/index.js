@@ -1,7 +1,7 @@
 var doxmate = require('../');
-var should = require('should');
 var path = require('path');
 var fs = require('fs');
+var expect = require('expect.js');
 
 describe("Doxmate", function () {
   it("getIndexs", function () {
@@ -23,6 +23,6 @@ describe("Doxmate", function () {
       { level: 2, title: 'License (MIT)' },
       { level: 2, title: "捐赠" }
     ];
-    titles.should.eql(except);
+    expect(titles).to.eql(except);
   });
 });

@@ -23,7 +23,7 @@
     "ncp": "*"
   },
   "devDependencies": {
-    "should": "*",
+    "expect.js": "*",
     "mocha": "*"
   },
   "author": "Jackson Tian",
