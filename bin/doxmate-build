@@ -5,6 +5,7 @@
  */
 
 var program = require('commander'),
+  mkdirp = require('mkdirp'),
   fs = require('fs'),
   path = require('path'),
   doxmate = require('../');
@@ -29,7 +30,7 @@ if (program.output) {
 var docPath = program.output;
 var docExists = fs.existsSync(docPath);
 if (!docExists) {
-  fs.mkdirSync(docPath, '0777');
+  mkdirp.sync(docPath);
 }
 
 doxmate.process(path.resolve('.'), program.output, program.skin, program.dir);

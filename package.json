@@ -16,10 +16,11 @@
     "dox"
   ],
   "dependencies": {
-    "dox": "*",
     "commander": "*",
-    "marked": "*",
+    "dox": "*",
     "ejs": "*",
+    "marked": "*",
+    "mkdirp": "^0.5.0",
     "ncp": "*"
   },
   "devDependencies": {
