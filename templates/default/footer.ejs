@@ -19,13 +19,13 @@
         prettyPrint();
         var $window = $(window);
         var sidenav = $('.bs-docs-sidenav');
-        if (sidenav.height < window.innerHeight) {
+        if (sidenav.height() < window.innerHeight) {
           sidenav.affix({
             offset: {
               top: function () {
                 return $window.width() <= 980 ? 290 : 210
               },
-              bottom: 270
+              bottom: 200
             }
           });
         } else {
