@@ -5,7 +5,6 @@
  */
 
 var program = require('commander'),
-  fs = require('fs'),
   path = require('path'),
   doxmate = require('../');
 
@@ -27,9 +26,6 @@ program.on('--help', function () {
 });
 
 program.parse(process.argv);
-
-// args void of cmd
-var args = process.argv.slice(3);
 
 // command
 var cmd = program.args[0];
