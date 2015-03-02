@@ -484,3 +484,7 @@ ol.linenums li {
 .content > h6 {
   padding-top: 45px;
 }
+
+.table p {
+  margin: 0;
+}

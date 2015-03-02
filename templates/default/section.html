@@ -29,13 +29,12 @@
 <% if (comment.code) { %>
   <%-comment.description.full%>
 <% } %>
+  <p>方法签名</p>
   <table class="table table-striped table-bordered table-hover table-condensed">
   <% if (comment.ctx) { %>
     <tr>
       <td><%=types[comment.ctx.type] %></td>
-      <td><%=comment.ctx.string %></td> 
-      <td><%=comment.ctx.receiver %></td>
-      <td><%=comment.ctx.name %></td>
+      <td colspan="3"><%=comment.ctx.string %></td> 
     </tr>
   <% } %>
 <% for (var j = 0, k = comment.tags.length; j < k; j++) { 
@@ -53,7 +52,7 @@
     <tr>
       <td><%=types[tag.type]%></td>
       <td><%=tag.name%>(<%=tag.types && tag.types.join(',')%>)</td>
-      <td colspan="2"><%=tag.description%></td>
+      <td colspan="2"><%-tag.description%></td>
     </tr>
   <% break;
     case 'api':
@@ -63,11 +62,11 @@
       <td colspan="3"><%=tag.visibility%></td>
     </tr>
   <% break;
-    case 'example':
+    case 'examples':
   %>
     <tr>
       <td><%=types[tag.type]%></td>
-      <td colspan="3"><pre><%=tag.string%></pre></td>
+      <td colspan="3"><%=tag.string%></td>
     </tr>
   <% break;
     case 'exception':
@@ -84,9 +83,10 @@
       <td colspan="3"><%=tag.string%></td>
     </tr>
   <% break;
-    default:%>
+    default:
+    %>
     <tr>
-      <td><%=types[tag.type]%></td>
+      <td><%=types[tag.type] || tag.type%></td>
       <td><%=tag.types && tag.types.join(',')%></td>
       <td><%=tag.name%></td>
       <td><%=tag.description%></td>
