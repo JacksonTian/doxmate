@@ -18,19 +18,28 @@
         $('td pre').removeClass('prettyprint');
         prettyPrint();
         var $window = $(window);
-        $('.bs-docs-sidenav').affix({
-          offset: {
-            top: function () {
-              return $window.width() <= 980 ? 290 : 210
-            },
-            bottom: 270
-          }
-        });
+        var sidenav = $('.bs-docs-sidenav');
+        if (sidenav.height < window.innerHeight) {
+          sidenav.affix({
+            offset: {
+              top: function () {
+                return $window.width() <= 980 ? 290 : 210
+              },
+              bottom: 270
+            }
+          });
+        } else {
+          sidenav.removeClass('affix');
+        }
         $(".content").find('h1, h2, h3, h4, h5, h6').each(function () {
           var node = $(this);
           // 总是设置id
           node.attr("id", node.data('id') || "index_" + node.text());
-          node.css("paddingTop", 50);
+        });
+
+        $('.bs-docs-sidenav .accordion-marker').on('click', function(event) {
+          var current = $(event.currentTarget);
+          current.find('.glyphicon').toggleClass('glyphicon-chevron-right glyphicon-chevron-down');
         });
       });
     </script>

@@ -5,9 +5,9 @@
 			<div class="accordion-group">
 				<div class="accordion-heading">
 					<a href="#api_<%=key%>" class="api_side_link"><%=key%></a>
-					<div class="accordion-marker" id="collapse_marker_<%=key%>">
+					<div class="accordion-marker">
 						<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#<%=key%>" href="#collapse_<%=key%>">
-							 <span id="toggle_<%=key%>" class="glyphicon glyphicon-chevron-right"></span>
+							 <span class="glyphicon glyphicon-chevron-right"></span>
 						</a>
 					</div>
 				</div>
@@ -33,11 +33,5 @@
 			</div>
 		</div>
   </li>
-  
-  <script type="text/javascript">
-    $('#collapse_marker_<%=key%>').on('click', function() {
-    	$('#toggle_<%=key%>').toggleClass('glyphicon-chevron-right glyphicon-chevron-down');
-    });
-  </script>
 <% } %>
 </ul>
