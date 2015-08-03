@@ -5,7 +5,7 @@
  */
 
 var program = require('commander'),
-  exec = require('child_process').exec,
+  execFile = require('child_process').execFile,
   path = require('path'),
   fs = require('fs'),
   join = path.join,
@@ -60,9 +60,11 @@ if (fs.existsSync(local)) {
 }
 
 // execute command
-exec('node ' + bin + ' ' + args.join(' '), function (err, stdout) {
+var options = {maxBuffer: 1024 * 1024};
+execFile(local, args, options, function (err, stdout) {
   if (err) {
-    return console.error(err);
+    console.error(err);
+    return;
   }
   console.log(stdout);
 });

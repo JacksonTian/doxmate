@@ -3,14 +3,14 @@
   <ul class="indexs">
   <%
   var indexs = comments.filter(function (item) {
-    return !item.ignore && item.ctx;
-  }).map(function (item) {
-    return item.ctx;
-  }).forEach(function (item) {
-    item.receiver = item.receiver || '';
+    return !item.ignore;
+  }).forEach(function (comment) {
+    comment.ctx.receiver = comment.ctx.receiver || '';
   %>
     <li>
-      <a href="#<%= basename  + '_' + item.receiver + '_' + item.name%>"><%= item.name%></a>
+      <a href="#<%= basename  + '_' + comment.ctx.receiver + '_' + __getName(comment)%>">
+        <%=__getName(comment)%>
+      </a>
     </li>
 <% }); %>
   </ul>
@@ -21,11 +21,9 @@
     continue;
   }
 %>
-  <% if (comment.ctx) { %>
-  <h3 data-id="<%= basename + '_' + comment.ctx.receiver + '_' + comment.ctx.name%>">
-    <%=comment.ctx.name%>
+  <h3 data-id="<%= basename + '_' + comment.ctx.receiver + '_' + __getName(comment)%>">
+    <%=__getName(comment)%>
   </h3>
-  <% } %>
 <% if (comment.code) { %>
   <%-comment.description.full%>
 <% } %>
@@ -34,10 +32,10 @@
   <% if (comment.ctx) { %>
     <tr>
       <td><%=types[comment.ctx.type] %></td>
-      <td colspan="3"><%=comment.ctx.string %></td> 
+      <td colspan="3"><%=comment.ctx.string %></td>
     </tr>
   <% } %>
-<% for (var j = 0, k = comment.tags.length; j < k; j++) { 
+<% for (var j = 0, k = comment.tags.length; j < k; j++) {
     var tag = comment.tags[j];
     switch (tag.type) {
     case 'return':
@@ -45,7 +43,7 @@
     <tr>
       <td><%=types[tag.type]%></td>
       <td><%=tag.types && tag.types.join(',')%></td>
-      <td colspan="2"><pre><%=tag.description%></pre></td> </tr>
+      <td colspan="2"><%-tag.description%></td> </tr>
   <% break;
     case 'param':
     %>
@@ -77,6 +75,13 @@
     </tr>
   <% break;
     case 'callmethod':
+  %>
+    <tr>
+      <td><%=types[tag.type]%></td>
+      <td colspan="3"><%=tag.string%></td>
+    </tr>
+  <% break;
+    case 'name':
   %>
     <tr>
       <td><%=types[tag.type]%></td>
