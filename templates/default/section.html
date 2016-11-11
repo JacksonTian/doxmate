@@ -3,7 +3,7 @@
   <ul class="indexs">
   <%
   var indexs = comments.filter(function (item) {
-    return !item.ignore;
+    return !item.ignore && item.ctx;
   }).forEach(function (comment) {
     comment.ctx.receiver = comment.ctx.receiver || '';
   %>
@@ -17,7 +17,7 @@
   <hr />
 <% for (var i = 0, l = comments.length; i < l; i++) {
   var comment = comments[i];
-  if (comment.ignore) {
+  if (comment.ignore || !comment.ctx) {
     continue;
   }
 %>
