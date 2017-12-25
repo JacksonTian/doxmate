@@ -1,5 +1,5 @@
 <section id="api_<%=basename%>" class="api">
-  <h2><%=basename%>: API索引</h2>
+  <h2><%=basename%> API Docs</h2>
   <ul class="indexs">
   <%
   var indexs = comments.filter(function (item) {
@@ -27,7 +27,7 @@
 <% if (comment.code) { %>
   <%-comment.description.full%>
 <% } %>
-  <p>方法签名</p>
+  <p>Method Signatures</p>
   <table class="table table-striped table-bordered table-hover table-condensed">
   <% if (comment.ctx) { %>
     <tr>

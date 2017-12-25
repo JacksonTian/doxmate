@@ -84,6 +84,9 @@ Doxmate将会扫描项目下的README.md和doc目录下的md文件，通过markd
 
 ```
 
+## International version
+[See en_US branch](https://github.com/cbou/markdox/tree/en_US)
+
 ## License (MIT)
 MIT许可，请自由享用。
 
