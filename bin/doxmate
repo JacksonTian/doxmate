@@ -61,10 +61,17 @@ if (fs.existsSync(local)) {
 
 // execute command
 var options = {maxBuffer: 1024 * 1024};
-execFile(local, args, options, function (err, stdout) {
-  if (err) {
+execFile("node", [local], function (err, stdout) {
+    if (err) {
     console.error(err);
     return;
-  }
-  console.log(stdout);
+    }
+    console.log(stdout);
 });
+// execFile(local, args, options, function (err, stdout) {
+//   if (err) {
+//     console.error(err);
+//     return;
+//   }
+//   console.log(stdout);
+// });
